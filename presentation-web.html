@@ -568,10 +568,10 @@ const sl=document.querySelectorAll('.slide'),bar=document.getElementById('bar'),
 let c=0;
 function go(n){if(n<0||n>=sl.length)return;sl[c].classList.remove('active');c=n;sl[c].classList.add('active');pn.textContent=`${c+1} / ${sl.length}`;bar.style.width=((c+1)/sl.length*100)+'%';}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(c+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(c-1);}});
-let tx=0;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)d<0?go(c+1):go(c-1);});
+
 document.getElementById('fsBtn').onclick=function(){if(!document.fullscreenElement){document.documentElement.requestFullscreen().catch(()=>{});}else{document.exitFullscreen();}};
 document.addEventListener('fullscreenchange',function(){document.getElementById('fsBtn').textContent=document.fullscreenElement?'\u00D7':'\u26F6';});
-document.addEventListener('wheel',(()=>{let t=0;return e=>{if(Date.now()-t<500)return;t=Date.now();e.deltaY>0?go(c+1):go(c-1);};})());
+
 </script>
 </body>
 </html>
