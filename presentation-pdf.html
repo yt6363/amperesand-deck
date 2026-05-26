@@ -138,36 +138,34 @@
   .flow-col { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .nd {
     display: flex; flex-direction: column; align-items: center; gap: 5px;
-    background: #fff; border: 1px solid var(--card-border); border-radius: 0;
-    padding: 10px 14px; min-width: 80px; text-align: center;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    background: transparent; border: none; border-radius: 0;
+    padding: 8px 12px; min-width: 80px; text-align: center;
+    box-shadow: none;
   }
   .nd-icon {
-    width: 36px; height: 36px; border-radius: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 800;
+    font-size: 28px; line-height: 1; font-weight: 800;
   }
-  .nd-icon.red { background: var(--nd-red-bg); color: var(--nd-red-fg); }
-  .nd-icon.org { background: var(--nd-org-bg); color: var(--nd-org-fg); }
-  .nd-icon.pur { background: var(--nd-pur-bg); color: var(--nd-pur-fg); }
-  .nd-icon.blu { background: var(--nd-blu-bg); color: var(--nd-blu-fg); }
-  .nd-icon.pnk { background: var(--nd-pnk-bg); color: var(--nd-pnk-fg); }
-  .nd-icon.cyn { background: var(--nd-cyn-bg); color: var(--nd-cyn-fg); }
-  .nd-icon.grn { background: var(--nd-grn-bg); color: var(--nd-grn-fg); }
-  .nd-icon.gry { background: var(--nd-gry-bg); color: var(--nd-gry-fg); }
-  .nd-lbl { font-size: 9.5px; font-weight: 600; color: var(--text-light); }
+  .nd-icon.red { color: var(--nd-red-fg); }
+  .nd-icon.org { color: var(--nd-org-fg); }
+  .nd-icon.pur { color: var(--nd-pur-fg); }
+  .nd-icon.blu { color: var(--nd-blu-fg); }
+  .nd-icon.pnk { color: var(--nd-pnk-fg); }
+  .nd-icon.cyn { color: var(--nd-cyn-fg); }
+  .nd-icon.grn { color: var(--nd-grn-fg); }
+  .nd-icon.gry { color: var(--nd-gry-fg); }
+  .nd-lbl { font-size: 11px; font-weight: 600; color: var(--text-light); }
   .arr { color: var(--arrow-color); font-size: 16px; font-weight: 400; line-height: 1; }
   .arr-down { text-align: center; color: var(--arrow-color); font-size: 16px; margin: 2px 0; }
 
   /* LOGO BADGES */
   .logo-row { display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap; }
   .logo-badge {
-    background: #fff; border: 1px solid var(--card-border); border-radius: 0;
-    padding: 8px 14px; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-    height: 44px;
+    background: none; border: none; border-radius: 0;
+    padding: 0; display: flex; align-items: center; justify-content: center;
+    box-shadow: none;
+    height: auto;
   }
-  .logo-badge img { max-height: 24px; max-width: 80px; object-fit: contain; }
+  .logo-badge img { max-height: 28px; max-width: 80px; object-fit: contain; }
 
   /* UNIVERSITY SEALS */
   .seal-circle {
@@ -229,6 +227,18 @@
   @media print {
     body { background: none; }
     .page { margin: 0; box-shadow: none; }
+  }
+
+  @media (max-width: 768px) {
+    .page { width: 100%; height: auto; min-height: auto; padding: 28px 20px 24px; margin: 12px auto; }
+    .inner { padding: 20px 16px 20px; height: auto; }
+    h1.serif { font-size: 32px; }
+    h2.serif { font-size: 20px; }
+    .grid-2, .grid-3, .grid-4, .grid-5 { grid-template-columns: 1fr; }
+    .flow-row { gap: 4px; }
+    .nd { min-width: 60px; padding: 6px 8px; }
+    .tbl { font-size: 11px; }
+    .tbl th, .tbl td { padding: 6px 8px; }
   }
 </style>
 </head>
@@ -376,19 +386,19 @@
         <div style="display: flex; flex-direction: column; gap: 4px;">
           <div style="display: flex; gap: 6px;">
             <div class="nd" style="min-width: 68px; padding: 8px 10px;">
-              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 11px;">C</div>
+              <div class="nd-icon grn">C</div>
               <div class="nd-lbl">Card Svc</div>
             </div>
             <div class="nd" style="min-width: 68px; padding: 8px 10px;">
-              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 11px;">B</div>
+              <div class="nd-icon grn">B</div>
               <div class="nd-lbl">Bank Svc</div>
             </div>
             <div class="nd" style="min-width: 68px; padding: 8px 10px;">
-              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 11px;">A</div>
+              <div class="nd-icon grn">A</div>
               <div class="nd-lbl">Auto Svc</div>
             </div>
             <div class="nd" style="min-width: 68px; padding: 8px 10px;">
-              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 11px;">G</div>
+              <div class="nd-icon grn">G</div>
               <div class="nd-lbl">Global Svc</div>
             </div>
           </div>
@@ -396,17 +406,17 @@
         <div class="arr">&rarr;</div>
         <div style="display: flex; flex-direction: column; gap: 4px;">
           <div class="nd" style="min-width: 68px; padding: 8px 10px;">
-            <div class="nd-icon blu" style="width: 28px; height: 28px; font-size: 10px;">Lib</div>
+            <div class="nd-icon blu">Lib</div>
             <div class="nd-lbl">Shared Libs</div>
           </div>
           <div class="nd" style="min-width: 68px; padding: 8px 10px;">
-            <div class="nd-icon pur" style="width: 28px; height: 28px; font-size: 10px;">API</div>
+            <div class="nd-icon pur">API</div>
             <div class="nd-lbl">Reusable APIs</div>
           </div>
         </div>
         <div class="arr">&rarr;</div>
         <div class="nd">
-          <div class="nd-icon cyn" style="font-size: 10px;">AWS</div>
+          <div class="nd-icon cyn">AWS</div>
           <div class="nd-lbl">Cloud Infra</div>
         </div>
       </div>
@@ -446,22 +456,22 @@
           <!-- Row 1: User to Queue -->
           <div class="flow-row" style="gap: 5px;">
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon red" style="width: 30px; height: 30px; font-size: 12px;">&#9742;</div>
+              <div class="nd-icon red">&#9742;</div>
               <div class="nd-lbl">User</div>
             </div>
             <div class="arr">&rarr;</div>
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon gry" style="width: 30px; height: 30px; font-size: 10px;">&#128274;</div>
+              <div class="nd-icon gry">&#128274;</div>
               <div class="nd-lbl">Security</div>
             </div>
             <div class="arr">&rarr;</div>
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon pur" style="width: 30px; height: 30px; font-size: 10px;">&#9883;</div>
+              <div class="nd-icon pur">&#9883;</div>
               <div class="nd-lbl">CloudDoc</div>
             </div>
             <div class="arr">&rarr;</div>
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon blu" style="width: 30px; height: 30px; font-size: 9px;">ALB</div>
+              <div class="nd-icon blu">ALB</div>
               <div class="nd-lbl">Balancer</div>
             </div>
           </div>
@@ -469,17 +479,17 @@
           <!-- Row 2: SQS to DynamoDB -->
           <div class="flow-row" style="gap: 5px;">
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon pnk" style="width: 30px; height: 30px; font-size: 9px;">SQS</div>
+              <div class="nd-icon pnk">SQS</div>
               <div class="nd-lbl">Queue</div>
             </div>
             <div class="arr">&rarr;</div>
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon org" style="width: 30px; height: 30px; font-size: 12px;">&#955;</div>
+              <div class="nd-icon org">&#955;</div>
               <div class="nd-lbl">Lambda</div>
             </div>
             <div class="arr">&harr;</div>
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon blu" style="width: 30px; height: 30px; font-size: 9px;">DB</div>
+              <div class="nd-icon blu">DB</div>
               <div class="nd-lbl">DynamoDB</div>
             </div>
           </div>
@@ -487,22 +497,22 @@
           <!-- Row 3: Monitoring -->
           <div class="flow-row" style="gap: 5px;">
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon pur" style="width: 30px; height: 30px; font-size: 10px;">&#128270;</div>
+              <div class="nd-icon pur">&#128270;</div>
               <div class="nd-lbl">X-Ray</div>
             </div>
             <div class="arr">&rarr;</div>
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon cyn" style="width: 30px; height: 30px; font-size: 10px;">&#128200;</div>
+              <div class="nd-icon cyn">&#128200;</div>
               <div class="nd-lbl">CloudWatch</div>
             </div>
             <div class="arr">&rarr;</div>
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon grn" style="width: 30px; height: 30px; font-size: 11px;">$</div>
+              <div class="nd-icon grn">$</div>
               <div class="nd-lbl">Cost</div>
             </div>
             <div class="arr">&rarr;</div>
             <div class="nd" style="min-width: 64px; padding: 7px 10px;">
-              <div class="nd-icon gry" style="width: 30px; height: 30px; font-size: 10px;">&#128203;</div>
+              <div class="nd-icon gry">&#128203;</div>
               <div class="nd-lbl">Logs</div>
             </div>
           </div>
@@ -527,7 +537,7 @@
       <div style="font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 10px;">Deployment Pipeline</div>
       <div class="flow-row" style="gap: 6px;">
         <div class="nd">
-          <div class="nd-icon blu" style="font-size: 10px;">Go</div>
+          <div class="nd-icon blu">Go</div>
           <div class="nd-lbl">Go Source</div>
         </div>
         <div class="arr">&rarr;</div>
@@ -549,21 +559,21 @@
         <div style="display: flex; flex-direction: column; gap: 4px;">
           <div style="display: flex; gap: 4px;">
             <div class="nd" style="min-width: 62px; padding: 6px 8px;">
-              <div class="nd-icon grn" style="width: 26px; height: 26px; font-size: 10px;">&#955;</div>
+              <div class="nd-icon grn">&#955;</div>
               <div class="nd-lbl">Card</div>
             </div>
             <div class="nd" style="min-width: 62px; padding: 6px 8px;">
-              <div class="nd-icon grn" style="width: 26px; height: 26px; font-size: 10px;">&#955;</div>
+              <div class="nd-icon grn">&#955;</div>
               <div class="nd-lbl">Bank</div>
             </div>
           </div>
           <div style="display: flex; gap: 4px;">
             <div class="nd" style="min-width: 62px; padding: 6px 8px;">
-              <div class="nd-icon grn" style="width: 26px; height: 26px; font-size: 10px;">&#955;</div>
+              <div class="nd-icon grn">&#955;</div>
               <div class="nd-lbl">Auto</div>
             </div>
             <div class="nd" style="min-width: 62px; padding: 6px 8px;">
-              <div class="nd-icon grn" style="width: 26px; height: 26px; font-size: 10px;">&#955;</div>
+              <div class="nd-icon grn">&#955;</div>
               <div class="nd-lbl">Global</div>
             </div>
           </div>
@@ -612,7 +622,7 @@
         <div style="font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 10px;">Service Architecture</div>
         <div class="flow-col">
           <div class="nd" style="padding: 10px 24px;">
-            <div class="nd-icon blu" style="font-size: 10px;">&#9733;</div>
+            <div class="nd-icon blu">&#9733;</div>
             <div class="nd-lbl">Core Services</div>
           </div>
           <div style="display: flex; gap: 4px; justify-content: center;">
@@ -623,19 +633,19 @@
           </div>
           <div style="display: flex; gap: 6px; justify-content: center;">
             <div class="nd" style="min-width: 70px; padding: 8px 10px;">
-              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 10px;">B</div>
+              <div class="nd-icon grn">B</div>
               <div class="nd-lbl">Bank DB</div>
             </div>
             <div class="nd" style="min-width: 70px; padding: 8px 10px;">
-              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 10px;">C</div>
+              <div class="nd-icon grn">C</div>
               <div class="nd-lbl">Card DB</div>
             </div>
             <div class="nd" style="min-width: 70px; padding: 8px 10px;">
-              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 10px;">A</div>
+              <div class="nd-icon grn">A</div>
               <div class="nd-lbl">Auto DB</div>
             </div>
             <div class="nd" style="min-width: 70px; padding: 8px 10px;">
-              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 10px;">G</div>
+              <div class="nd-icon grn">G</div>
               <div class="nd-lbl">Global DB</div>
             </div>
           </div>
