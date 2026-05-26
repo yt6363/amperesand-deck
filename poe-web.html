@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Areas of Distinction | Sai Kiran Reddy Konda</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:#FAFBFC}
+body{font-family:'DM Sans',sans-serif;color:#1E293B;line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:#0055FF;color:#fff}
+
+/* ═══ DECK & SLIDES ═══ */
+.deck{position:relative;height:100vh;width:100vw;overflow:hidden}
+.slide{position:absolute;inset:0;padding:52px 72px;opacity:0;pointer-events:none;transform:translateX(40px);transition:opacity .4s,transform .4s;overflow-y:auto;display:flex;flex-direction:column}
+.slide.active{opacity:1;pointer-events:auto;transform:translateX(0)}
+
+/* ═══ CHROME ═══ */
+.progress{position:fixed;top:0;left:0;height:3px;background:#0055FF;transition:width .4s;z-index:1000}
+.controls{position:fixed;bottom:18px;right:22px;display:flex;gap:10px;align-items:center;font-size:11px;color:#94A3B8;z-index:1000}
+.controls .key{background:#fff;border:1px solid #E2E8F0;border-radius:0;padding:3px 8px;font-family:monospace;font-size:10px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.pn{position:fixed;bottom:18px;left:22px;font-size:11px;color:#94A3B8;z-index:1000;letter-spacing:.5px}
+
+/* ═══ COVER SLIDES ═══ */
+.cover{background:linear-gradient(135deg,#0055FF,#003FCC);color:#fff;justify-content:center;padding:80px 100px}
+.cover::before{content:'';position:absolute;top:-120px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.07),transparent 70%);border-radius:50%}
+.cover::after{content:'';position:absolute;bottom:-80px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%);border-radius:50%}
+.cover .ey{color:rgba(255,255,255,.6)}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:700;line-height:1.04;letter-spacing:-.03em;margin-bottom:24px;max-width:880px}
+.cover .sub{font-size:20px;color:rgba(255,255,255,.8);max-width:700px;line-height:1.45}
+.cover .meta{margin-top:56px;display:flex;gap:26px;font-size:13px;color:rgba(255,255,255,.65)}
+.cover .meta b{color:#fff}
+
+/* ═══ CLOSING COVER (darker) ═══ */
+.cover-dark{background:linear-gradient(135deg,#003FCC,#001F80)}
+
+/* ═══ TYPOGRAPHY ═══ */
+.ey{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0055FF;margin-bottom:12px}
+.st{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;color:#0F172A;line-height:1.08;letter-spacing:-.03em;margin-bottom:14px;max-width:880px}
+.ss{font-size:17px;color:#64748B;margin-bottom:28px;max-width:800px;line-height:1.55}
+h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#0F172A;margin:12px 0 8px;letter-spacing:-.01em}
+p{font-size:16px;color:#334155;margin-bottom:10px;line-height:1.65}
+strong{color:#0F172A;font-weight:600}
+em{color:#0055FF;font-style:italic}
+
+/* ═══ TABLE ═══ */
+table{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 16px;font-size:14px;border-radius:0;overflow:hidden;border:1px solid #E2E8F0;background:#fff;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+thead{background:#0055FF;color:#fff}
+th{padding:10px 14px;text-align:left;font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:10px 14px;border-top:1px solid #E2E8F0;color:#1E293B;line-height:1.5;vertical-align:top}
+tbody tr:nth-child(even){background:#F0F5FF}
+
+/* ═══ CARD ═══ */
+.card{background:#fff;border:1px solid #E2E8F0;border-radius:0;padding:18px 22px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+
+/* ═══ CALLOUT ═══ */
+.co{border-left:4px solid #0055FF;border-radius:0;padding:13px 18px;margin:12px 0;font-size:14.5px;line-height:1.6;background:#EBF0FF;color:#1E293B}
+.co b{color:#0055FF}
+.co.green{background:#ECFDF5;border-color:#059669}.co.green b{color:#059669}
+.co.amber{background:#FFFBEB;border-color:#D97706}.co.amber b{color:#D97706}
+
+/* ═══ PILL ═══ */
+.pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:0;letter-spacing:.3px;margin:2px 3px 2px 0}
+.pill.bl{background:#DBEAFE;color:#1D4ED8}
+.pill.gr{background:#D1FAE5;color:#059669}
+.pill.rd{background:#FEE2E2;color:#DC2626}
+
+/* ═══ KEYLINE ═══ */
+.kl{background:linear-gradient(135deg,#0055FF,#003FCC);color:#fff;padding:22px 28px;border-radius:0;margin:14px 0;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;line-height:1.3;letter-spacing:-.01em;max-width:880px}
+
+/* ═══ TWO COL ═══ */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+/* ═══ PILL ROW ═══ */
+.pill-row{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-height:780px){
+  .slide{padding:36px 56px}
+  .cover{padding:56px 72px}
+  .cover h1{font-size:52px}
+  .st{font-size:38px}
+  p{font-size:14px}
+}
+@media(max-width:768px){
+  .slide{padding:32px 20px}
+  .two{grid-template-columns:1fr}
+  .cover h1{font-size:38px}
+  .st{font-size:32px}
+  .controls{display:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="bar"></div>
+<div class="pn" id="pn">1 / 5</div>
+<div class="controls"><span class="key">&larr;</span><span class="key">&rarr;</span> <span>navigate</span></div>
+
+<div class="deck">
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SLIDE 1 — COVER                                          -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="slide cover active">
+  <div class="ey">Amperesand &middot; Technical Interview</div>
+  <h1>Areas of Distinction</h1>
+  <p class="sub">Three achievements that define ownership, delivery under pressure, and engineering at scale.</p>
+  <div class="meta">
+    <span><b>Sai Kiran Reddy Konda</b></span>
+    <span><b>Role:</b>&nbsp;Engineer</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SLIDE 2 — ACHIEVEMENT 01: DIGITAL HIE                    -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="ey">01 &middot; Achievement</div>
+  <h2 class="st">Led HIPAA accreditation from zero to compliant in 4 months</h2>
+  <div class="two">
+    <div>
+      <p>At <strong>Digital HIE Inc</strong>, I led the organization through the rigorous <strong>DirectTrust HISP accreditation</strong> process. I was the primary technical lead and sole author of end-to-end compliance documentation, security policies, operational procedures, and audit evidence for the platform architecture, secure messaging workflows, encryption, and interoperability infrastructure.</p>
+      <p>Achieved accreditation readiness within <em>4 months</em> while simultaneously managing day-to-day engineering and operational responsibilities. No external consultants. No dedicated compliance team.</p>
+
+      <div class="pill-row">
+        <span class="pill bl">HIPAA</span>
+        <span class="pill bl">DirectTrust HISP</span>
+        <span class="pill bl">Secure Messaging</span>
+        <span class="pill bl">Encryption</span>
+        <span class="pill bl">Interoperability</span>
+      </div>
+
+      <div class="co"><b>Dual-role ownership:</b> I ran engineering and compliance simultaneously. There was no separate compliance team, no external consultants. Every policy, every piece of audit evidence, every architectural decision went through me.</div>
+    </div>
+    <div>
+      <table>
+        <thead><tr><th>Metric</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Timeline</strong></td><td>4 months</td></tr>
+          <tr><td><strong>Role</strong></td><td>Solo technical lead</td></tr>
+          <tr><td><strong>Scope</strong></td><td>End-to-end compliance</td></tr>
+          <tr><td><strong>Result</strong></td><td><span class="pill gr">Accreditation readiness</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SLIDE 3 — ACHIEVEMENT 02: COGNIZANT / LINCOLN FINANCIAL  -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="ey">02 &middot; Achievement</div>
+  <h2 class="st">Project lead in year one. Mainframe migration in 6 months. During COVID.</h2>
+  <div class="two">
+    <div>
+      <p>My first project lead assignment with less than a year of experience. At <strong>Cognizant for Lincoln Financial Group</strong>, I led a high-priority modernization initiative to migrate Federal Insurance Match and CSLN integrations from legacy <strong>IBM Mainframe and S2K databases</strong> into automated ETL-driven data pipelines.</p>
+      <p>Wrote hundreds of lines of production Cobol. Coordinated <em>4 cross-functional teams</em> spanning <em>3 time zones</em> during the COVID-19 pandemic. Delivered within a compressed <em>6-month</em> timeline.</p>
+
+      <div class="pill-row">
+        <span class="pill bl">Cobol</span>
+        <span class="pill bl">IBM Mainframe</span>
+        <span class="pill bl">S2K</span>
+        <span class="pill bl">ETL Pipelines</span>
+        <span class="pill bl">Federal Insurance</span>
+      </div>
+
+      <div class="co amber"><b>Under one year of experience:</b> Most engineers at that stage are still onboarding. I was leading a cross-timezone migration on legacy systems I'd never touched before, during a pandemic that moved everything remote overnight.</div>
+    </div>
+    <div>
+      <table>
+        <thead><tr><th>Metric</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Teams</strong></td><td>4 cross-functional</td></tr>
+          <tr><td><strong>Time Zones</strong></td><td>3</td></tr>
+          <tr><td><strong>Timeline</strong></td><td>6 months (compressed)</td></tr>
+          <tr><td><strong>Context</strong></td><td><span class="pill rd">COVID-19 pandemic</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SLIDE 4 — ACHIEVEMENT 03: CAPITAL ONE                    -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="slide">
+  <div class="ey">03 &middot; Achievement</div>
+  <h2 class="st">Architected systems serving 130M+ accounts. Built to survive region failure.</h2>
+  <div class="two">
+    <div>
+      <p>Challenged and influenced the architecture for next-gen <strong>Transaction and Account Stores</strong>, supporting <em>130M+ unique accounts</em> across Card, Bank, Auto, and Global Finance. Delivered end-to-end on AWS in <em>8 months</em>.</p>
+      <p>Designed a reusable <strong>"code-once" architecture</strong> adopted across 4 services on multiple AWS accounts. Built <strong>Terraform infrastructure from scratch</strong> enabling automated cross-region failover us-east-1 to us-west-2.</p>
+      <p>Independently led the Transaction Store with <em>~98% test coverage</em>, and served as a core team member on the Account Store.</p>
+
+      <div class="pill-row">
+        <span class="pill bl">AWS</span>
+        <span class="pill bl">Terraform</span>
+        <span class="pill bl">DynamoDB</span>
+        <span class="pill bl">Go</span>
+        <span class="pill bl">Lambda</span>
+        <span class="pill bl">Multi-Region</span>
+      </div>
+
+      <div class="kl">"Code-once" architecture: write the service once, deploy it across four lines of business on separate AWS accounts. Other teams adopted the pattern for their own services.</div>
+    </div>
+    <div>
+      <table>
+        <thead><tr><th>Metric</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Accounts</strong></td><td>130M+</td></tr>
+          <tr><td><strong>Delivery</strong></td><td>8 months</td></tr>
+          <tr><td><strong>Architecture</strong></td><td>Code-once across 4 services</td></tr>
+          <tr><td><strong>Failover</strong></td><td><span class="pill gr">Multi-region automated</span></td></tr>
+          <tr><td><strong>Coverage</strong></td><td><span class="pill gr">~98%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SLIDE 5 — CLOSING                                        -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="slide cover cover-dark">
+  <div class="ey">Summary</div>
+  <h1>Ownership. Pressure. Delivery.</h1>
+  <p class="sub">Every role pushed me further. I took the lead when it wasn't expected, delivered under constraints that should have slowed things down, and built systems other teams adopted.</p>
+  <div class="meta">
+    <span><b>Sai Kiran Reddy Konda</b></span>
+    <span><a href="https://www.linkedin.com/in/saikiranreddykonda/" style="color:rgba(255,255,255,.8);text-decoration:underline">LinkedIn</a></span>
+    <span><a href="mailto:konda.saik@northeastern.edu" style="color:rgba(255,255,255,.8);text-decoration:underline">konda.saik@northeastern.edu</a></span>
+  </div>
+</section>
+
+</div>
+
+<script>
+const sl=document.querySelectorAll('.slide'),bar=document.getElementById('bar'),pn=document.getElementById('pn');
+let c=0;
+function go(n){
+  if(n<0||n>=sl.length)return;
+  sl[c].classList.remove('active');
+  c=n;
+  sl[c].classList.add('active');
+  pn.textContent=`${c+1} / ${sl.length}`;
+  bar.style.width=((c+1)/sl.length*100)+'%';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(c+1);}
+  if(e.key==='ArrowLeft'){e.preventDefault();go(c-1);}
+});
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);
+document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)d<0?go(c+1):go(c-1);});
+document.addEventListener('wheel',(()=>{let t=0;return e=>{if(Date.now()-t<500)return;t=Date.now();e.deltaY>0?go(c+1):go(c-1);};})());
+</script>
+</body>
+</html>

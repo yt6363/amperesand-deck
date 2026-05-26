@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Presentation | Sai Kiran Reddy Konda</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap');
+
+  :root {
+    --primary: #0055FF;
+    --primary-dark: #003FCC;
+    --bg: #FAFBFC;
+    --card-bg: #FFFFFF;
+    --card-border: #E2E8F0;
+    --text-dark: #1E293B;
+    --text-mid: #475569;
+    --text-light: #64748B;
+    --text-faint: #94A3B8;
+    --row-alt: #F0F5FF;
+    --arrow-color: #CBD5E1;
+    /* node palette */
+    --nd-red-bg: #FEE2E2; --nd-red-fg: #DC2626;
+    --nd-org-bg: #FFEDD5; --nd-org-fg: #EA580C;
+    --nd-pur-bg: #EDE9FE; --nd-pur-fg: #7C3AED;
+    --nd-blu-bg: #DBEAFE; --nd-blu-fg: #1D4ED8;
+    --nd-pnk-bg: #FCE7F3; --nd-pnk-fg: #DB2777;
+    --nd-cyn-bg: #CFFAFE; --nd-cyn-fg: #0891B2;
+    --nd-grn-bg: #D1FAE5; --nd-grn-fg: #059669;
+    --nd-gry-bg: #F1F5F9; --nd-gry-fg: #475569;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #E2E8F0;
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: 'Cormorant Garamond', serif; }
+
+  /* PAGE */
+  .page {
+    width: 1120px; height: 630px;
+    margin: 24px auto; position: relative;
+    overflow: hidden; page-break-after: always;
+    background: var(--bg);
+  }
+  .page.cover-page {
+    background: linear-gradient(135deg, #0055FF 0%, #003FCC 100%);
+    color: #FFFFFF;
+  }
+  .inner { padding: 40px 52px 36px; height: 100%; display: flex; flex-direction: column; }
+  .page-num {
+    position: absolute; bottom: 14px; right: 28px;
+    font-size: 9px; color: var(--text-faint); font-weight: 500;
+  }
+  .cover-page .page-num { color: rgba(255,255,255,0.35); }
+  .page-footer {
+    position: absolute; bottom: 14px; left: 52px;
+    font-size: 9px; color: var(--text-faint); font-weight: 400;
+  }
+  .cover-page .page-footer { color: rgba(255,255,255,0.35); }
+
+  /* TYPOGRAPHY */
+  .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--primary); margin-bottom: 8px;
+  }
+  .cover-page .tag { color: rgba(255,255,255,.6); }
+  h1.serif { font-size: 48px; font-weight: 600; line-height: 1.1; letter-spacing: -0.5px; }
+  h2.serif { font-size: 26px; font-weight: 600; line-height: 1.25; letter-spacing: -0.3px; color: var(--text-dark); }
+  h3.serif { font-size: 18px; font-weight: 600; line-height: 1.3; color: var(--text-dark); }
+  .subtitle { font-size: 14px; font-weight: 400; color: var(--text-mid); line-height: 1.5; margin-top: 6px; }
+  .cover-page .subtitle { color: rgba(255,255,255,0.55); }
+
+  /* CARDS */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02);
+    padding: 16px;
+  }
+
+  /* TABLES */
+  .tbl { width: 100%; border-collapse: separate; border-spacing: 0; border-radius: 0; overflow: hidden; border: 1px solid var(--card-border); }
+  .tbl th {
+    background: var(--primary); color: #fff;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    padding: 10px 14px; text-align: left;
+  }
+  .tbl td {
+    font-size: 11.5px; padding: 9px 14px; color: var(--text-mid); line-height: 1.4;
+  }
+  .tbl tr:nth-child(even) td { background: var(--row-alt); }
+  .tbl tr:nth-child(odd) td { background: #fff; }
+  .tbl tr:last-child td:first-child { border-bottom-left-radius: 0; }
+  .tbl tr:last-child td:last-child { border-bottom-right-radius: 0; }
+
+  /* PILLS */
+  .pill {
+    display: inline-block; font-size: 9.5px; font-weight: 700; padding: 2px 8px;
+    border-radius: 0; letter-spacing: 0.3px;
+  }
+  .pill.bl { background: #DBEAFE; color: #1D4ED8; }
+  .pill.gr { background: #D1FAE5; color: #059669; }
+  .pill.rd { background: #FEE2E2; color: #DC2626; }
+  .pill.am { background: #FEF3C7; color: #D97706; }
+  .pill.pu { background: #EDE9FE; color: #7C3AED; }
+  .pill.gy { background: #F1F5F9; color: #475569; }
+
+  /* CALLOUTS */
+  .co {
+    border-left: 3px solid var(--primary);
+    background: #EBF0FF;
+    border-radius: 0;
+    padding: 12px 16px;
+    font-size: 11.5px; line-height: 1.55; color: var(--text-mid);
+  }
+  .co.green { border-left-color: #059669; background: #F0FDF4; }
+  .co.amber { border-left-color: #D97706; background: #FFFBEB; }
+  .co strong { color: var(--text-dark); }
+
+  /* KEYLINE */
+  .keyline {
+    background: linear-gradient(135deg, #0055FF, #003FCC);
+    border-radius: 0; padding: 20px 28px; color: #fff;
+  }
+  .keyline .serif { font-size: 15px; font-weight: 500; line-height: 1.55; font-style: italic; }
+
+  /* FLOW DIAGRAMS */
+  .flow-row { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+  .flow-col { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .nd {
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+    background: #fff; border: 1px solid var(--card-border); border-radius: 0;
+    padding: 10px 14px; min-width: 80px; text-align: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .nd-icon {
+    width: 36px; height: 36px; border-radius: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800;
+  }
+  .nd-icon.red { background: var(--nd-red-bg); color: var(--nd-red-fg); }
+  .nd-icon.org { background: var(--nd-org-bg); color: var(--nd-org-fg); }
+  .nd-icon.pur { background: var(--nd-pur-bg); color: var(--nd-pur-fg); }
+  .nd-icon.blu { background: var(--nd-blu-bg); color: var(--nd-blu-fg); }
+  .nd-icon.pnk { background: var(--nd-pnk-bg); color: var(--nd-pnk-fg); }
+  .nd-icon.cyn { background: var(--nd-cyn-bg); color: var(--nd-cyn-fg); }
+  .nd-icon.grn { background: var(--nd-grn-bg); color: var(--nd-grn-fg); }
+  .nd-icon.gry { background: var(--nd-gry-bg); color: var(--nd-gry-fg); }
+  .nd-lbl { font-size: 9.5px; font-weight: 600; color: var(--text-light); }
+  .arr { color: var(--arrow-color); font-size: 16px; font-weight: 400; line-height: 1; }
+  .arr-down { text-align: center; color: var(--arrow-color); font-size: 16px; margin: 2px 0; }
+
+  /* LOGO BADGES */
+  .logo-row { display: flex; gap: 16px; align-items: center; justify-content: center; flex-wrap: wrap; }
+  .logo-badge {
+    background: #fff; border: 1px solid var(--card-border); border-radius: 0;
+    padding: 8px 14px; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    height: 44px;
+  }
+  .logo-badge img { max-height: 24px; max-width: 80px; object-fit: contain; }
+
+  /* UNIVERSITY SEALS */
+  .seal-circle {
+    width: 52px; height: 52px; border-radius: 0;
+    background: #fff; border: 2px solid var(--card-border);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    overflow: hidden; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .seal-circle img { width: 42px; height: 42px; object-fit: contain; }
+
+  /* GRIDS */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+
+  /* METRICS */
+  .metric-card {
+    background: #fff; border: 1px solid var(--card-border); border-radius: 0;
+    padding: 16px; text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .metric-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 4px;
+  }
+  .metric-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px; font-weight: 700; color: var(--primary); line-height: 1.1;
+  }
+  .metric-desc { font-size: 10px; color: var(--text-faint); margin-top: 2px; }
+
+  /* PERSONAL CARDS */
+  .p-card {
+    background: #fff; border: 1px solid var(--card-border); border-radius: 0;
+    padding: 14px 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .p-card h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px; font-weight: 700; color: var(--primary); margin-bottom: 3px;
+  }
+  .p-card p { font-size: 11px; color: var(--text-mid); line-height: 1.4; }
+
+  /* BULLETS */
+  .bullet-list { list-style: none; }
+  .bullet-list li {
+    padding: 7px 0 7px 16px; font-size: 12px; line-height: 1.55;
+    color: var(--text-mid); position: relative;
+    border-bottom: 1px solid #F1F5F9;
+  }
+  .bullet-list li:last-child { border-bottom: none; }
+  .bullet-list li::before {
+    content: ''; position: absolute; left: 0; top: 14px;
+    width: 5px; height: 5px; background: var(--primary); border-radius: 0;
+  }
+  .bullet-list li strong { color: var(--text-dark); font-weight: 600; }
+
+  @media print {
+    body { background: none; }
+    .page { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- PAGE 1: COVER                                                 -->
+<!-- ============================================================ -->
+<div class="page cover-page">
+  <div class="inner" style="justify-content: center; align-items: center; text-align: center;">
+    <div class="tag" style="letter-spacing: 3px;">Technical Presentation</div>
+    <h1 class="serif" style="color: #fff; margin-top: 8px;">Sai Kiran Reddy<span style="opacity: 0.35;">,</span> Konda</h1>
+    <div style="width: 60px; height: 3px; background: rgba(255,255,255,0.25); margin: 20px auto 16px; border-radius: 0;"></div>
+    <div class="subtitle" style="font-size: 13px; letter-spacing: 0.5px;">
+      Introduction &nbsp;&rarr;&nbsp; Education &nbsp;&rarr;&nbsp; Career &nbsp;&rarr;&nbsp; Technical Presentation &nbsp;&rarr;&nbsp; Q&amp;A
+    </div>
+    <div style="display: flex; gap: 12px; margin-top: 24px;">
+      <span style="padding: 5px 14px; border-radius: 0; background: rgba(255,255,255,0.12); font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8);">Role: Engineer</span>
+      <span style="padding: 5px 14px; border-radius: 0; background: rgba(255,255,255,0.12); font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.8);">Focus: Distributed Systems</span>
+    </div>
+  </div>
+  <div class="page-footer">Amperesand</div>
+  <div class="page-num">1 / 7</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 2: EDUCATION + CAREER                                    -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="inner">
+    <div class="tag">Education &amp; Career</div>
+    <h2 class="serif">Hardware foundations. Software ambitions.</h2>
+
+    <!-- Education cards -->
+    <div class="grid-2" style="margin-top: 16px;">
+      <div class="card" style="display: flex; gap: 14px; align-items: center;">
+        <div class="seal-circle">
+          <img src="images/anna-university.png" alt="Anna University">
+        </div>
+        <div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--text-dark);">Anna University</div>
+          <div style="font-size: 11.5px; color: var(--text-mid); margin-top: 2px;">B.E. Electronics &amp; Communication Engineering</div>
+          <div style="font-size: 10px; color: var(--text-faint); margin-top: 2px;">Microprocessors, Embedded Systems, Digital Electronics</div>
+        </div>
+      </div>
+      <div class="card" style="display: flex; gap: 14px; align-items: center;">
+        <div class="seal-circle">
+          <img src="images/northeastern-seal.png" alt="Northeastern University">
+        </div>
+        <div>
+          <div style="font-size: 14px; font-weight: 700; color: var(--text-dark);">Northeastern University</div>
+          <div style="font-size: 11.5px; color: var(--text-mid); margin-top: 2px;">M.S. Computer Software Engineering</div>
+          <div style="font-size: 10px; color: var(--text-faint); margin-top: 2px;">Algorithms, Database Design, Cloud, DevOps</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Logo row -->
+    <div class="logo-row" style="margin-top: 18px;">
+      <div class="logo-badge"><img src="images/cognizant-logo.png" alt="Cognizant"></div>
+      <div class="logo-badge"><img src="images/oracle-logo.png" alt="Oracle"></div>
+      <div class="logo-badge"><img src="images/wasabi-logo.png" alt="Wasabi"></div>
+      <div class="logo-badge"><img src="images/digitalhie-logo.png" alt="Digital HIE"></div>
+      <div class="logo-badge"><img src="images/capitalone-logo.png" alt="Capital One"></div>
+    </div>
+
+    <!-- Career table -->
+    <table class="tbl" style="margin-top: 18px;">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Role</th>
+          <th>Highlights</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight: 600;">Cognizant</td>
+          <td>Project Lead</td>
+          <td>Mainframe &rarr; ETL migration. 4 teams, delivered through COVID.</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Digital HIE</td>
+          <td>Tech Lead</td>
+          <td>HIPAA accreditation, solo-built compliance infrastructure.</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 600;">Capital One</td>
+          <td>Systems Architect</td>
+          <td>130M+ accounts migrated to serverless AWS architecture.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-footer">Amperesand</div>
+  <div class="page-num">2 / 7</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 3: PROBLEM STATEMENT                                     -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="inner">
+    <div class="tag">01 &mdash; Problem Statement</div>
+    <h2 class="serif">One monolith. Four LOBs. <span style="color: var(--primary);">It couldn't scale.</span></h2>
+
+    <!-- Before / After table -->
+    <div class="grid-2" style="margin-top: 16px;">
+      <!-- BEFORE -->
+      <div>
+        <table class="tbl">
+          <thead><tr><th colspan="2" style="text-align: center;">Before</th></tr></thead>
+          <tbody>
+            <tr><td>Architecture</td><td><span class="pill rd">Monolith</span></td></tr>
+            <tr><td>Coupling</td><td><span class="pill rd">Tight</span></td></tr>
+            <tr><td>Deployment</td><td><span class="pill rd">All-or-nothing</span></td></tr>
+            <tr><td>Scaling</td><td><span class="pill rd">Vertical only</span></td></tr>
+            <tr><td>Risk</td><td><span class="pill rd">Shared failures</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- AFTER -->
+      <div>
+        <table class="tbl">
+          <thead><tr><th colspan="2" style="text-align: center;">After</th></tr></thead>
+          <tbody>
+            <tr><td>Architecture</td><td><span class="pill gr">Microservices</span></td></tr>
+            <tr><td>Coupling</td><td><span class="pill gr">Loose</span></td></tr>
+            <tr><td>Deployment</td><td><span class="pill gr">Independent</span></td></tr>
+            <tr><td>Scaling</td><td><span class="pill gr">Horizontal</span></td></tr>
+            <tr><td>Risk</td><td><span class="pill gr">Isolated</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Decomposition diagram -->
+    <div style="margin-top: 18px;">
+      <div class="flow-row">
+        <div class="nd">
+          <div class="nd-icon red">&#9632;</div>
+          <div class="nd-lbl">Monolith</div>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; gap: 6px;">
+            <div class="nd" style="min-width: 68px; padding: 8px 10px;">
+              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 11px;">C</div>
+              <div class="nd-lbl">Card Svc</div>
+            </div>
+            <div class="nd" style="min-width: 68px; padding: 8px 10px;">
+              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 11px;">B</div>
+              <div class="nd-lbl">Bank Svc</div>
+            </div>
+            <div class="nd" style="min-width: 68px; padding: 8px 10px;">
+              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 11px;">A</div>
+              <div class="nd-lbl">Auto Svc</div>
+            </div>
+            <div class="nd" style="min-width: 68px; padding: 8px 10px;">
+              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 11px;">G</div>
+              <div class="nd-lbl">Global Svc</div>
+            </div>
+          </div>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div class="nd" style="min-width: 68px; padding: 8px 10px;">
+            <div class="nd-icon blu" style="width: 28px; height: 28px; font-size: 10px;">Lib</div>
+            <div class="nd-lbl">Shared Libs</div>
+          </div>
+          <div class="nd" style="min-width: 68px; padding: 8px 10px;">
+            <div class="nd-icon pur" style="width: 28px; height: 28px; font-size: 10px;">API</div>
+            <div class="nd-lbl">Reusable APIs</div>
+          </div>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div class="nd">
+          <div class="nd-icon cyn" style="font-size: 10px;">AWS</div>
+          <div class="nd-lbl">Cloud Infra</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">Amperesand</div>
+  <div class="page-num">3 / 7</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 4: METHODOLOGY + ARCHITECTURE                            -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="inner">
+    <div class="tag">02 &mdash; Methodology &amp; Architecture</div>
+    <h2 class="serif" style="font-size: 22px;">Let the product decide the stack.</h2>
+
+    <div class="grid-2" style="margin-top: 14px; gap: 18px;">
+      <!-- Methodology table -->
+      <div>
+        <table class="tbl">
+          <thead><tr><th>Phase</th><th>Decision</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight: 600;">Requirements</td><td><span class="pill bl">130M+ accounts, 4 LOBs</span></td></tr>
+            <tr><td style="font-weight: 600;">Schema</td><td><span class="pill pu">NoSQL single-table design</span></td></tr>
+            <tr><td style="font-weight: 600;">Database</td><td><span class="pill bl">DynamoDB</span></td></tr>
+            <tr><td style="font-weight: 600;">Language</td><td><span class="pill gr">Go (concurrency + cold start)</span></td></tr>
+            <tr><td style="font-weight: 600;">Cloud</td><td><span class="pill am">AWS Lambda + SQS + ALB</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Architecture diagram -->
+      <div>
+        <div style="font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 8px;">Request Flow</div>
+        <div class="flow-col" style="gap: 4px;">
+          <!-- Row 1: User to Queue -->
+          <div class="flow-row" style="gap: 5px;">
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon red" style="width: 30px; height: 30px; font-size: 12px;">&#9742;</div>
+              <div class="nd-lbl">User</div>
+            </div>
+            <div class="arr">&rarr;</div>
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon gry" style="width: 30px; height: 30px; font-size: 10px;">&#128274;</div>
+              <div class="nd-lbl">Security</div>
+            </div>
+            <div class="arr">&rarr;</div>
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon pur" style="width: 30px; height: 30px; font-size: 10px;">&#9883;</div>
+              <div class="nd-lbl">CloudDoc</div>
+            </div>
+            <div class="arr">&rarr;</div>
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon blu" style="width: 30px; height: 30px; font-size: 9px;">ALB</div>
+              <div class="nd-lbl">Balancer</div>
+            </div>
+          </div>
+          <div class="arr-down">&darr;</div>
+          <!-- Row 2: SQS to DynamoDB -->
+          <div class="flow-row" style="gap: 5px;">
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon pnk" style="width: 30px; height: 30px; font-size: 9px;">SQS</div>
+              <div class="nd-lbl">Queue</div>
+            </div>
+            <div class="arr">&rarr;</div>
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon org" style="width: 30px; height: 30px; font-size: 12px;">&#955;</div>
+              <div class="nd-lbl">Lambda</div>
+            </div>
+            <div class="arr">&harr;</div>
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon blu" style="width: 30px; height: 30px; font-size: 9px;">DB</div>
+              <div class="nd-lbl">DynamoDB</div>
+            </div>
+          </div>
+          <div class="arr-down">&darr;</div>
+          <!-- Row 3: Monitoring -->
+          <div class="flow-row" style="gap: 5px;">
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon pur" style="width: 30px; height: 30px; font-size: 10px;">&#128270;</div>
+              <div class="nd-lbl">X-Ray</div>
+            </div>
+            <div class="arr">&rarr;</div>
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon cyn" style="width: 30px; height: 30px; font-size: 10px;">&#128200;</div>
+              <div class="nd-lbl">CloudWatch</div>
+            </div>
+            <div class="arr">&rarr;</div>
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon grn" style="width: 30px; height: 30px; font-size: 11px;">$</div>
+              <div class="nd-lbl">Cost</div>
+            </div>
+            <div class="arr">&rarr;</div>
+            <div class="nd" style="min-width: 64px; padding: 7px 10px;">
+              <div class="nd-icon gry" style="width: 30px; height: 30px; font-size: 10px;">&#128203;</div>
+              <div class="nd-lbl">Logs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">Amperesand</div>
+  <div class="page-num">4 / 7</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 5: CI/CD + TESTING                                       -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="inner">
+    <div class="tag">03 &mdash; CI/CD &amp; Testing</div>
+    <h2 class="serif" style="font-size: 22px;">Automated pipeline. 98% coverage. Zero manual gates.</h2>
+
+    <!-- CI/CD Pipeline Diagram -->
+    <div style="margin-top: 16px;">
+      <div style="font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 10px;">Deployment Pipeline</div>
+      <div class="flow-row" style="gap: 6px;">
+        <div class="nd">
+          <div class="nd-icon blu" style="font-size: 10px;">Go</div>
+          <div class="nd-lbl">Go Source</div>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div class="nd">
+          <div class="nd-icon gry">&#128025;</div>
+          <div class="nd-lbl">GitHub</div>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div class="nd">
+          <div class="nd-icon org">&#9881;</div>
+          <div class="nd-lbl">Jenkins</div>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div class="nd">
+          <div class="nd-icon pur">&#128230;</div>
+          <div class="nd-lbl">JFrog</div>
+        </div>
+        <div class="arr">&rarr;</div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div style="display: flex; gap: 4px;">
+            <div class="nd" style="min-width: 62px; padding: 6px 8px;">
+              <div class="nd-icon grn" style="width: 26px; height: 26px; font-size: 10px;">&#955;</div>
+              <div class="nd-lbl">Card</div>
+            </div>
+            <div class="nd" style="min-width: 62px; padding: 6px 8px;">
+              <div class="nd-icon grn" style="width: 26px; height: 26px; font-size: 10px;">&#955;</div>
+              <div class="nd-lbl">Bank</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 4px;">
+            <div class="nd" style="min-width: 62px; padding: 6px 8px;">
+              <div class="nd-icon grn" style="width: 26px; height: 26px; font-size: 10px;">&#955;</div>
+              <div class="nd-lbl">Auto</div>
+            </div>
+            <div class="nd" style="min-width: 62px; padding: 6px 8px;">
+              <div class="nd-icon grn" style="width: 26px; height: 26px; font-size: 10px;">&#955;</div>
+              <div class="nd-lbl">Global</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testing table -->
+    <div class="grid-2" style="margin-top: 18px; gap: 18px;">
+      <div>
+        <table class="tbl">
+          <thead><tr><th>Test Type</th><th>Result</th></tr></thead>
+          <tbody>
+            <tr><td style="font-weight: 600;">SonarQube</td><td><span class="pill gr">98% Quality Gate</span></td></tr>
+            <tr><td style="font-weight: 600;">Unit Tests</td><td><span class="pill gr">100% Coverage</span></td></tr>
+            <tr><td style="font-weight: 600;">Integration</td><td><span class="pill bl">BDD / Gherkin</span></td></tr>
+            <tr><td style="font-weight: 600;">Performance</td><td><span class="pill bl">1B+ Records</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div class="co green">
+          <strong>BDD-first approach:</strong> Business stakeholders wrote Gherkin specs before engineering started. Every feature traced back to an acceptance criterion. Zero ambiguity at handoff.
+        </div>
+        <div class="co">
+          <strong>Performance validated</strong> against 1B+ synthetic records across all four LOBs before production cutover.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">Amperesand</div>
+  <div class="page-num">5 / 7</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 6: SOLUTION + IMPACT                                     -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="inner">
+    <div class="tag">04 &mdash; Solution &amp; Impact</div>
+    <h2 class="serif" style="font-size: 22px;">Challenge existing designs. <span style="color: var(--primary);">Let the product decide.</span></h2>
+
+    <div class="grid-2" style="margin-top: 14px; gap: 18px;">
+      <!-- Core services diagram -->
+      <div>
+        <div style="font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--primary); margin-bottom: 10px;">Service Architecture</div>
+        <div class="flow-col">
+          <div class="nd" style="padding: 10px 24px;">
+            <div class="nd-icon blu" style="font-size: 10px;">&#9733;</div>
+            <div class="nd-lbl">Core Services</div>
+          </div>
+          <div style="display: flex; gap: 4px; justify-content: center;">
+            <span class="arr">&darr;</span>
+            <span class="arr">&darr;</span>
+            <span class="arr">&darr;</span>
+            <span class="arr">&darr;</span>
+          </div>
+          <div style="display: flex; gap: 6px; justify-content: center;">
+            <div class="nd" style="min-width: 70px; padding: 8px 10px;">
+              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 10px;">B</div>
+              <div class="nd-lbl">Bank DB</div>
+            </div>
+            <div class="nd" style="min-width: 70px; padding: 8px 10px;">
+              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 10px;">C</div>
+              <div class="nd-lbl">Card DB</div>
+            </div>
+            <div class="nd" style="min-width: 70px; padding: 8px 10px;">
+              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 10px;">A</div>
+              <div class="nd-lbl">Auto DB</div>
+            </div>
+            <div class="nd" style="min-width: 70px; padding: 8px 10px;">
+              <div class="nd-icon grn" style="width: 28px; height: 28px; font-size: 10px;">G</div>
+              <div class="nd-lbl">Global DB</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Metrics row -->
+        <div class="grid-4" style="margin-top: 14px; gap: 8px;">
+          <div class="metric-card" style="padding: 10px;">
+            <div class="metric-label">Accounts</div>
+            <div class="metric-val" style="font-size: 24px;">130M+</div>
+            <div class="metric-desc">All LOBs</div>
+          </div>
+          <div class="metric-card" style="padding: 10px;">
+            <div class="metric-label">Delivered</div>
+            <div class="metric-val" style="font-size: 24px;">8 mo</div>
+            <div class="metric-desc">End-to-end</div>
+          </div>
+          <div class="metric-card" style="padding: 10px;">
+            <div class="metric-label">Services</div>
+            <div class="metric-val" style="font-size: 24px;">4</div>
+            <div class="metric-desc">Code-once</div>
+          </div>
+          <div class="metric-card" style="padding: 10px;">
+            <div class="metric-label">Coverage</div>
+            <div class="metric-val" style="font-size: 24px;">98%</div>
+            <div class="metric-desc">Sonar</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Takeaways + Keyline -->
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <ul class="bullet-list" style="flex: 1;">
+          <li><strong>Product requirements define architecture.</strong> Schema &rarr; DB &rarr; Cloud &rarr; Language.</li>
+          <li><strong>Challenge inherited designs.</strong> Better approaches hide behind assumptions.</li>
+          <li><strong>Root-cause analysis over gut.</strong> Volumes + growth rate = foundation for every decision.</li>
+          <li><strong>Ripple effect.</strong> Other teams adopted the patterns including batch processing.</li>
+        </ul>
+        <div class="keyline">
+          <div class="serif">"Terraform-managed cross-region failover gave us active-active resilience without manual intervention. One config, two regions, zero downtime."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">Amperesand</div>
+  <div class="page-num">6 / 7</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PAGE 7: PERSONAL + Q&A                                        -->
+<!-- ============================================================ -->
+<div class="page">
+  <div class="inner">
+    <div class="tag">Personal &amp; Q&amp;A</div>
+    <h2 class="serif">Beyond the code.</h2>
+
+    <div class="grid-2" style="margin-top: 16px; grid-template-columns: 1fr 1fr; gap: 12px;">
+      <div class="p-card">
+        <h4>&#127951; Sports</h4>
+        <p>Volleyball, Cricket, Badminton.</p>
+      </div>
+      <div class="p-card">
+        <h4>&#128663; Driving</h4>
+        <p>Manhattan &amp; Jersey City explorer.</p>
+      </div>
+      <div class="p-card">
+        <h4>&#127760; Languages</h4>
+        <p>English, Telugu, Tamil, Hindi, Kannada.</p>
+      </div>
+      <div class="p-card">
+        <h4>&#127869; Exploring</h4>
+        <p>New cuisines, new places, new conversations.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 44px;">
+      <div style="width: 50px; height: 3px; background: linear-gradient(90deg, var(--primary), var(--primary-dark)); margin: 0 auto 16px; border-radius: 0;"></div>
+      <h1 class="serif" style="font-size: 42px; color: var(--text-dark);">Ok, <span style="color: var(--primary);">shoot.</span></h1>
+      <div style="font-size: 13px; color: var(--text-light); margin-top: 8px;">Happy to go deeper on any decisions, trade-offs, or challenges.</div>
+      <div style="margin-top: 20px; display: flex; gap: 12px; justify-content: center;">
+        <a href="https://www.linkedin.com/in/saikiranreddykonda/" target="_blank" style="padding: 6px 16px; border-radius: 0; background: var(--row-alt); color: var(--primary); font-size: 11px; font-weight: 600; border: 1px solid #DBEAFE; text-decoration: none;">LinkedIn</a>
+        <a href="mailto:konda.saik@northeastern.edu" style="padding: 6px 16px; border-radius: 0; background: var(--row-alt); color: var(--primary); font-size: 11px; font-weight: 600; border: 1px solid #DBEAFE; text-decoration: none;">konda.saik@northeastern.edu</a>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">Amperesand</div>
+  <div class="page-num">7 / 7</div>
+</div>
+
+</body>
+</html>
