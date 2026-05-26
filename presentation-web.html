@@ -219,6 +219,47 @@ tbody tr:nth-child(even){background:#F0F5FF}
 .slide.active .flow-v > div:nth-child(3) .fnode:nth-child(3){animation-delay:.6s}
 
 @media(max-height:780px){.slide{padding:36px 56px}.cover{padding:56px 72px}.cover h1{font-size:52px}.st{font-size:38px}p,li{font-size:14px}}
+
+@media print{
+  html,body{height:auto !important;overflow:visible !important;background:#fff !important}
+  .deck{height:auto !important;overflow:visible !important}
+  .slide{position:relative !important;opacity:1 !important;transform:none !important;pointer-events:all !important;height:630px !important;width:1120px !important;page-break-after:always !important;overflow:hidden !important;display:flex !important;padding:32px 48px !important}
+  .cover{padding:48px 64px !important}
+  .progress,.pn,.controls,.m-wrap{display:none !important}
+  .st{font-size:32px !important;margin-bottom:10px !important}
+  .ss{font-size:14px !important;margin-bottom:16px !important}
+  .ey{font-size:9px !important;margin-bottom:8px !important}
+  h3{font-size:18px !important;margin:8px 0 6px !important}
+  p{font-size:13px !important;margin-bottom:6px !important;line-height:1.5 !important}
+  li{font-size:13px !important;margin-bottom:4px !important;line-height:1.5 !important}
+  .co{font-size:12px !important;padding:8px 12px !important;margin:8px 0 !important;line-height:1.45 !important}
+  .kl{font-size:15px !important;padding:12px 16px !important;margin:8px 0 !important}
+  table{font-size:11px !important;margin:6px 0 10px !important}
+  th{padding:6px 10px !important;font-size:9px !important}
+  td{padding:6px 10px !important}
+  .two{gap:16px !important}
+  .fnode{padding:6px 10px !important;min-width:72px !important}
+  .fnode .fi{font-size:32px !important}
+  .fl{font-size:10px !important}
+  .farr,.farr-d{font-size:20px !important}
+  .arch-section{margin:4px 0 !important}
+  .arch-label{font-size:8px !important;margin-bottom:4px !important}
+  .flow{margin:4px 0 !important;gap:4px !important}
+  .mrow{margin:10px 0 !important;gap:20px !important}
+  .mv{font-size:36px !important}
+  .ml{font-size:9px !important}
+  .pgrid{gap:8px !important}
+  .pc{padding:10px 14px !important}
+  .pc h4{font-size:11px !important}
+  .pc p{font-size:11px !important}
+  .pill{font-size:9px !important;padding:1px 6px !important}
+  .edu-row{gap:10px !important}
+  .edu{padding:12px 14px !important}
+  .logo-badge img{max-width:90px !important;max-height:30px !important}
+  .cover h1{font-size:52px !important;margin-bottom:16px !important}
+  .cover .sub{font-size:16px !important}
+  .cover .meta{margin-top:32px !important;font-size:11px !important}
+}
 @media(max-width:768px){
   .slide{padding:32px 20px}
   .cover{padding:40px 24px}
