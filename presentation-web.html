@@ -20,6 +20,7 @@ body{font-family:'DM Sans',sans-serif;color:#1E293B;line-height:1.6;-webkit-font
 .progress{position:fixed;top:0;left:0;height:3px;background:#0055FF;transition:width .4s;z-index:1000}
 .controls{position:fixed;bottom:18px;right:22px;display:flex;gap:10px;align-items:center;font-size:11px;color:#94A3B8;z-index:1000}
 .controls .key{background:#fff;border:1px solid #E2E8F0;border-radius:0;padding:3px 8px;font-family:monospace;font-size:10px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.fs-btn{position:fixed;top:18px;right:22px;z-index:1000;background:none;border:1px solid #E2E8F0;padding:5px 8px;cursor:pointer;font-size:14px;color:#94A3B8;line-height:1;transition:.2s}.fs-btn:hover{border-color:#0055FF;color:#0055FF}
 .pn{position:fixed;bottom:18px;left:22px;font-size:11px;color:#94A3B8;z-index:1000;letter-spacing:.5px}
 
 /* COVER */
@@ -304,6 +305,7 @@ tbody tr:nth-child(even){background:#F0F5FF}
 </head>
 <body>
 <div class="progress" id="bar"></div>
+<button class="fs-btn" id="fsBtn" title="Fullscreen">&#x26F6;</button>
 <div class="pn" id="pn">1 / 12</div>
 <div class="controls"><span class="key">&larr;</span><span class="key">&rarr;</span> <span>navigate</span></div>
 
@@ -567,6 +569,8 @@ let c=0;
 function go(n){if(n<0||n>=sl.length)return;sl[c].classList.remove('active');c=n;sl[c].classList.add('active');pn.textContent=`${c+1} / ${sl.length}`;bar.style.width=((c+1)/sl.length*100)+'%';}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(c+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(c-1);}});
 let tx=0;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)d<0?go(c+1):go(c-1);});
+document.getElementById('fsBtn').onclick=function(){if(!document.fullscreenElement){document.documentElement.requestFullscreen().catch(()=>{});}else{document.exitFullscreen();}};
+document.addEventListener('fullscreenchange',function(){document.getElementById('fsBtn').textContent=document.fullscreenElement?'\u00D7':'\u26F6';});
 document.addEventListener('wheel',(()=>{let t=0;return e=>{if(Date.now()-t<500)return;t=Date.now();e.deltaY>0?go(c+1):go(c-1);};})());
 </script>
 </body>
