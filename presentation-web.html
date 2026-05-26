@@ -262,44 +262,76 @@ tbody tr:nth-child(even){background:#F0F5FF}
   .cover .meta{margin-top:32px !important;font-size:11px !important}
 }
 @media(max-width:768px){
-  .slide{padding:32px 20px}
-  .cover{padding:40px 24px}
-  .two,.edu-row,.pgrid{grid-template-columns:1fr}
-  .cover h1{font-size:36px}
-  .st{font-size:28px}
-  .ss{font-size:15px}
-  .controls{display:none}
-  .flow{gap:4px}
-  .fnode{min-width:60px;padding:6px 8px}
-  .fnode .fi{font-size:28px}
-  .fl{font-size:11px;max-width:80px}
-  .farr,.farr-d{font-size:20px}
-  .co{font-size:13px;padding:10px 14px}
-  .kl{font-size:16px;padding:14px 18px}
-  table{font-size:12px}
-  th,td{padding:7px 10px}
-  .mrow{gap:16px;flex-wrap:wrap}
-  .mv{font-size:36px}
-  li{font-size:14px}
-  p{font-size:14px}
-  .logo-badge img{max-width:80px;max-height:28px}
-  .logo-badge.lg img{max-width:100px;max-height:36px}
-  .logo-row{gap:12px}
-  .edu-seal{width:40px;height:40px}
-  .edu-seal img{width:32px;height:32px}
-  .m-wrap{display:none}
-  .arch-label{font-size:9px}
-}
-@media(max-width:480px){
   .slide{padding:24px 16px}
   .cover{padding:32px 20px}
-  .cover h1{font-size:28px}
-  .st{font-size:24px}
+  .two,.edu-row,.pgrid{grid-template-columns:1fr}
+  .cover h1{font-size:32px;margin-bottom:12px}
+  .st{font-size:26px;margin-bottom:10px}
+  .ss{font-size:14px;margin-bottom:16px}
+  .ey{font-size:10px;letter-spacing:2px;margin-bottom:8px}
+  h3{font-size:20px}
+  .controls{display:none}
+  .flow{gap:3px}
   .fnode{min-width:50px;padding:4px 6px}
-  .fnode .fi{font-size:22px}
-  .fl{font-size:10px}
-  .mv{font-size:28px}
-  .cover .meta{flex-direction:column;gap:8px}
+  .fnode .fi{font-size:24px}
+  .fl{font-size:10px;max-width:70px}
+  .farr,.farr-d{font-size:16px}
+  .co{font-size:13px;padding:10px 14px;margin:8px 0}
+  .kl{font-size:15px;padding:12px 16px;margin:10px 0}
+  table{font-size:11px;margin:6px 0 10px}
+  th{padding:6px 8px;font-size:9px}
+  td{padding:6px 8px}
+  .mrow{gap:12px;flex-wrap:wrap;justify-content:flex-start}
+  .mv{font-size:32px}
+  .ml{font-size:10px}
+  li{font-size:14px;padding-left:18px;margin-bottom:5px}
+  li::before{width:6px;height:6px;top:10px}
+  p{font-size:14px;margin-bottom:8px}
+  .pill{font-size:10px;padding:2px 7px}
+  .logo-badge img{max-width:70px;max-height:24px}
+  .logo-badge.lg img{max-width:90px;max-height:32px}
+  .logo-row{gap:10px}
+  .edu-seal{width:40px;height:40px}
+  .edu-seal img{width:32px;height:32px}
+  .edu-name{font-size:15px}
+  .edu-deg{font-size:12px}
+  .edu-det{font-size:11px}
+  .edu{padding:12px 14px;gap:10px}
+  .m-wrap{display:none}
+  .arch-label{font-size:9px}
+  .pc{padding:14px 16px}
+  .pc h4{font-size:14px}
+  .pc p{font-size:13px}
+  .fs-btn{top:10px;right:10px;font-size:14px}
+  .pn{font-size:10px;bottom:10px;left:12px}
+  .cover .meta{flex-direction:column;gap:6px;margin-top:24px;font-size:13px}
+  .cover .sub{font-size:16px}
+  img[alt="AWS Architecture"],img[alt="CI/CD Pipeline"],img[alt="Core Services"]{max-height:50vh !important}
+}
+@media(max-width:480px){
+  .slide{padding:18px 12px}
+  .cover{padding:24px 16px}
+  .cover h1{font-size:26px}
+  .st{font-size:22px}
+  .ss{font-size:13px}
+  p{font-size:13px}
+  li{font-size:13px}
+  .fnode{min-width:44px;padding:3px 5px}
+  .fnode .fi{font-size:20px}
+  .fl{font-size:9px;max-width:60px}
+  .farr,.farr-d{font-size:14px}
+  .mv{font-size:26px}
+  .co{font-size:12px;padding:8px 12px}
+  .kl{font-size:14px;padding:10px 14px}
+  table{font-size:10px}
+  th{padding:5px 6px;font-size:8px}
+  td{padding:5px 6px}
+  .cover .meta{flex-direction:column;gap:4px;font-size:11px}
+  .cover .sub{font-size:14px}
+  .edu-row{gap:10px}
+  .pgrid{gap:8px}
+  .logo-badge img{max-width:56px;max-height:20px}
+  img[alt="AWS Architecture"],img[alt="CI/CD Pipeline"],img[alt="Core Services"]{max-height:40vh !important}
 }
 </style>
 </head>
@@ -568,6 +600,7 @@ const sl=document.querySelectorAll('.slide'),bar=document.getElementById('bar'),
 let c=0;
 function go(n){if(n<0||n>=sl.length)return;sl[c].classList.remove('active');c=n;sl[c].classList.add('active');pn.textContent=`${c+1} / ${sl.length}`;bar.style.width=((c+1)/sl.length*100)+'%';}
 document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(c+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(c-1);}});
+let tx=0;document.addEventListener('touchstart',e=>tx=e.touches[0].clientX);document.addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)d<0?go(c+1):go(c-1);});
 
 document.getElementById('fsBtn').onclick=function(){if(!document.fullscreenElement){document.documentElement.requestFullscreen().catch(()=>{});}else{document.exitFullscreen();}};
 document.addEventListener('fullscreenchange',function(){document.getElementById('fsBtn').textContent=document.fullscreenElement?'\u00D7':'\u26F6';});
