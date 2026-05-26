@@ -14,7 +14,7 @@ body{font-family:'DM Sans',sans-serif;color:#1E293B;line-height:1.6;-webkit-font
 ::selection{background:#0055FF;color:#fff}
 
 .deck{position:relative;height:100vh;width:100vw;overflow:hidden}
-.slide{position:absolute;inset:0;padding:52px 72px;opacity:0;pointer-events:none;transform:translateX(40px);transition:opacity .4s,transform .4s;overflow-y:auto;display:flex;flex-direction:column;justify-content:center}
+.slide{position:absolute;inset:0;padding:52px 72px;opacity:0;pointer-events:none;transform:translateX(40px);transition:opacity .4s,transform .4s;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
 .slide.active{opacity:1;pointer-events:auto;transform:translateX(0)}
 
 .progress{position:fixed;top:0;left:0;height:3px;background:#0055FF;transition:width .4s;z-index:1000}
@@ -27,28 +27,28 @@ body{font-family:'DM Sans',sans-serif;color:#1E293B;line-height:1.6;-webkit-font
 .cover::before{content:'';position:absolute;top:-120px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(255,255,255,.07),transparent 70%);border-radius:50%}
 .cover::after{content:'';position:absolute;bottom:-80px;left:-60px;width:320px;height:320px;background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%);border-radius:50%}
 .cover .ey{color:rgba(255,255,255,.6)}
-.cover h1{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:700;line-height:1.04;letter-spacing:-.03em;margin-bottom:24px;max-width:880px}
-.cover .sub{font-size:20px;color:rgba(255,255,255,.8);max-width:700px;line-height:1.45}
-.cover .meta{margin-top:56px;display:flex;gap:26px;font-size:13px;color:rgba(255,255,255,.65)}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:84px;font-weight:700;line-height:1.04;letter-spacing:-.03em;margin-bottom:24px;max-width:880px}
+.cover .sub{font-size:26px;color:rgba(255,255,255,.8);max-width:700px;line-height:1.45}
+.cover .meta{margin-top:56px;display:flex;gap:26px;font-size:15px;color:rgba(255,255,255,.65)}
 .cover .meta b{color:#fff}
 
 /* TYPE */
-.ey{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0055FF;margin-bottom:12px}
-.st{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:700;color:#0F172A;line-height:1.08;letter-spacing:-.03em;margin-bottom:14px;max-width:880px}
-.ss{font-size:17px;color:#64748B;margin-bottom:28px;max-width:800px;line-height:1.55}
-h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#0F172A;margin:12px 0 8px;letter-spacing:-.01em}
-p{font-size:16px;color:#334155;margin-bottom:10px;line-height:1.65}
+.ey{font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0055FF;margin-bottom:12px}
+.st{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:700;color:#0F172A;line-height:1.08;letter-spacing:-.03em;margin-bottom:14px;max-width:880px}
+.ss{font-size:22px;color:#64748B;margin-bottom:28px;max-width:800px;line-height:1.55}
+h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#0F172A;margin:12px 0 8px;letter-spacing:-.01em}
+p{font-size:20px;color:#334155;margin-bottom:10px;line-height:1.65}
 strong{color:#0F172A;font-weight:600}
 em{color:#0055FF;font-style:italic}
 ul{list-style:none;margin-bottom:12px}
-li{font-size:15.5px;color:#334155;line-height:1.65;margin-bottom:7px;padding-left:22px;position:relative}
-li::before{content:'';position:absolute;left:3px;top:11px;width:7px;height:7px;background:#0055FF;border-radius:50%}
+li{font-size:20px;color:#334155;line-height:1.65;margin-bottom:7px;padding-left:22px;position:relative}
+li::before{content:'';position:absolute;left:3px;top:13px;width:8px;height:8px;background:#0055FF;border-radius:50%}
 
 /* TABLE */
-table{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 16px;font-size:14px;border-radius:0;overflow:hidden;border:1px solid #E2E8F0;background:#fff;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+table{width:100%;border-collapse:separate;border-spacing:0;margin:10px 0 16px;font-size:16px;border-radius:0;overflow:hidden;border:1px solid #E2E8F0;background:#fff;box-shadow:0 1px 3px rgba(15,23,42,.04)}
 thead{background:#0055FF;color:#fff}
-th{padding:10px 14px;text-align:left;font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px}
-td{padding:10px 14px;border-top:1px solid #E2E8F0;color:#1E293B;line-height:1.5;vertical-align:top}
+th{padding:14px 18px;text-align:left;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:14px 18px;border-top:1px solid #E2E8F0;color:#1E293B;line-height:1.5;vertical-align:top}
 tbody tr:nth-child(even){background:#F0F5FF}
 
 /* CARD */
@@ -56,19 +56,19 @@ tbody tr:nth-child(even){background:#F0F5FF}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:10px 0}
 
 /* CALLOUT */
-.co{border-left:4px solid #0055FF;border-radius:0;padding:13px 18px;margin:12px 0;font-size:14.5px;line-height:1.6;background:#EBF0FF;color:#1E293B}
+.co{border-left:5px solid #0055FF;border-radius:0;padding:20px 26px;margin:16px 0;font-size:19px;line-height:1.6;background:#EBF0FF;color:#1E293B}
 .co b{color:#0055FF}
 .co.green{background:#ECFDF5;border-color:#059669}.co.green b{color:#059669}
 .co.amber{background:#FFFBEB;border-color:#D97706}.co.amber b{color:#D97706}
 
 /* PILL */
-.pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:0;letter-spacing:.3px}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:0;letter-spacing:.3px}
 .pill.bl{background:#DBEAFE;color:#1D4ED8}
 .pill.gr{background:#D1FAE5;color:#059669}
 .pill.rd{background:#FEE2E2;color:#DC2626}
 
 /* KEYLINE */
-.kl{background:#F0F5FF;border-left:4px solid #0055FF;color:#0F172A;padding:20px 26px;border-radius:0;margin:14px 0;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;line-height:1.35;letter-spacing:-.01em;max-width:880px}
+.kl{background:#F0F5FF;border-left:5px solid #0055FF;color:#0F172A;padding:26px 32px;border-radius:0;margin:18px 0;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;line-height:1.35;letter-spacing:-.01em;max-width:880px}
 
 /* TWO COL */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
@@ -76,8 +76,8 @@ tbody tr:nth-child(even){background:#F0F5FF}
 /* METRICS */
 .mrow{display:flex;gap:28px;margin:16px 0;justify-content:center}
 .m{text-align:center}
-.mv{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:#0055FF;letter-spacing:-.03em;line-height:1}
-.ml{font-size:11px;font-weight:600;color:#94A3B8;letter-spacing:.8px;text-transform:uppercase;margin-top:4px}
+.mv{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:700;color:#0055FF;letter-spacing:-.03em;line-height:1}
+.ml{font-size:14px;font-weight:600;color:#94A3B8;letter-spacing:.8px;text-transform:uppercase;margin-top:4px}
 
 /* ═══ LOGO CONTAINERS ═══ */
 .logo-row{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin:14px 0}
@@ -87,13 +87,13 @@ tbody tr:nth-child(even){background:#F0F5FF}
 .logo-badge.lg img{max-width:140px;max-height:48px}
 
 /* ═══ EDU CARDS ═══ */
-.edu-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:12px 0}
-.edu{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid #E2E8F0;border-radius:0;padding:18px 20px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
-.edu-seal{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid #E2E8F0;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
-.edu-seal img{width:44px;height:44px;object-fit:contain}
-.edu-name{font-size:15px;font-weight:700;color:#0F172A}
-.edu-deg{font-size:13px;color:#64748B;margin-top:1px}
-.edu-det{font-size:11px;color:#94A3B8;margin-top:3px}
+.edu-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:16px 0}
+.edu{display:flex;gap:18px;align-items:center;background:#fff;border:1px solid #E2E8F0;border-radius:0;padding:18px 20px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+.edu-seal{width:64px;height:64px;border-radius:50%;background:#fff;border:2px solid #E2E8F0;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.edu-seal img{width:52px;height:52px;object-fit:contain}
+.edu-name{font-size:20px;font-weight:700;color:#0F172A}
+.edu-deg{font-size:16px;color:#64748B;margin-top:1px}
+.edu-det{font-size:14px;color:#94A3B8;margin-top:3px}
 
 /* ═══ FLOW DIAGRAMS ═══ */
 .flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:10px 0;justify-content:center}
@@ -104,7 +104,7 @@ tbody tr:nth-child(even){background:#F0F5FF}
   min-width:100px;text-align:center;
 }
 .fnode .fi{
-  font-size:44px;line-height:1;display:block;
+  font-size:50px;line-height:1;display:block;
 }
 .fi.red{color:#DC2626}
 .fi.org{color:#EA580C}
@@ -114,19 +114,19 @@ tbody tr:nth-child(even){background:#F0F5FF}
 .fi.cyn{color:#0891B2}
 .fi.grn{color:#059669}
 .fi.gry{color:#475569}
-.fl{font-size:13px;font-weight:600;color:#64748B;max-width:120px;line-height:1.35}
-.farr{color:#CBD5E1;font-size:28px;display:flex;align-items:center}
-.farr-d{color:#CBD5E1;font-size:28px;text-align:center}
+.fl{font-size:15px;font-weight:600;color:#64748B;max-width:120px;line-height:1.35}
+.farr{color:#CBD5E1;font-size:32px;display:flex;align-items:center}
+.farr-d{color:#CBD5E1;font-size:32px;text-align:center}
 
 /* multi-row arch */
 .arch-section{margin:8px 0}
-.arch-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#94A3B8;margin-bottom:8px;padding-left:4px}
+.arch-label{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#94A3B8;margin-bottom:8px;padding-left:4px}
 
 /* PERSONAL */
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
-.pc{background:#fff;border:1px solid #E2E8F0;border-radius:0;padding:16px 20px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
-.pc h4{font-size:13px;font-weight:700;color:#0055FF;margin-bottom:5px}
-.pc p{font-size:14px;color:#64748B;margin:0;line-height:1.5}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.pc{background:#fff;border:1px solid #E2E8F0;border-radius:0;padding:22px 26px;box-shadow:0 1px 3px rgba(15,23,42,.04)}
+.pc h4{font-size:18px;font-weight:700;color:#0055FF;margin-bottom:5px}
+.pc p{font-size:17px;color:#64748B;margin:0;line-height:1.5}
 
 /* ═══ PIXEL MASCOT ═══ */
 .m-wrap{position:absolute;z-index:10;image-rendering:pixelated}
@@ -304,18 +304,18 @@ tbody tr:nth-child(even){background:#F0F5FF}
 </head>
 <body>
 <div class="progress" id="bar"></div>
-<div class="pn" id="pn">1 / 13</div>
+<div class="pn" id="pn">1 / 12</div>
 <div class="controls"><span class="key">&larr;</span><span class="key">&rarr;</span> <span>navigate</span></div>
 
 <div class="deck">
 
 <!-- ══ 1 COVER ══ -->
-<section class="slide cover active">  <div class="m-wrap tr mascot-walk"><svg viewBox="0 0 48 36" width="36" height="27" style="image-rendering:pixelated"><rect x="8" y="4" width="32" height="4" fill="#102D35"/><rect x="4" y="8" width="40" height="4" fill="#102D35"/><rect x="4" y="12" width="8" height="4" fill="#102D35"/><rect x="16" y="12" width="4" height="4" fill="#FAF6EE"/><rect x="20" y="12" width="8" height="4" fill="#102D35"/><rect x="32" y="12" width="4" height="4" fill="#FAF6EE"/><rect x="36" y="12" width="8" height="4" fill="#102D35"/><rect x="12" y="12" width="4" height="4" fill="#102D35"/><rect x="4" y="16" width="40" height="4" fill="#102D35"/><rect x="4" y="20" width="40" height="4" fill="#102D35"/><rect x="8" y="24" width="32" height="4" fill="#102D35"/><rect x="12" y="28" width="8" height="4" fill="#102D35"/><rect x="28" y="28" width="8" height="4" fill="#102D35"/><rect x="12" y="0" width="24" height="4" fill="#B6965E"/></svg></div>
-  <div class="ey">Amperesand &middot; Technical Interview</div>
+<section class="slide active">  <div class="m-wrap tr mascot-walk"><svg viewBox="0 0 48 36" width="36" height="27" style="image-rendering:pixelated"><rect x="8" y="4" width="32" height="4" fill="#102D35"/><rect x="4" y="8" width="40" height="4" fill="#102D35"/><rect x="4" y="12" width="8" height="4" fill="#102D35"/><rect x="16" y="12" width="4" height="4" fill="#FAF6EE"/><rect x="20" y="12" width="8" height="4" fill="#102D35"/><rect x="32" y="12" width="4" height="4" fill="#FAF6EE"/><rect x="36" y="12" width="8" height="4" fill="#102D35"/><rect x="12" y="12" width="4" height="4" fill="#102D35"/><rect x="4" y="16" width="40" height="4" fill="#102D35"/><rect x="4" y="20" width="40" height="4" fill="#102D35"/><rect x="8" y="24" width="32" height="4" fill="#102D35"/><rect x="12" y="28" width="8" height="4" fill="#102D35"/><rect x="28" y="28" width="8" height="4" fill="#102D35"/><rect x="12" y="0" width="24" height="4" fill="#B6965E"/></svg></div>
+  <div class="ey">Technical Interview</div>
   <h1>Sai Kiran Reddy, Konda</h1>
   <p class="sub">Introduction &rarr; Education &rarr; Career &rarr; Technical Presentation &rarr; Q&amp;A</p>
   <div class="meta">
-    <span><b>Role:</b>&nbsp;Engineer</span>
+    <span><b>Role:</b>&nbsp;Full Stack Software Engineer</span>
     <span><b>Focus:</b>&nbsp;Distributed Systems &amp; Cloud Architecture</span>
   </div>
 </section>
@@ -327,111 +327,145 @@ tbody tr:nth-child(even){background:#F0F5FF}
 
   <div class="edu-row">
     <div class="edu">
-      <div class="edu-seal"><img src="images/anna-university.png" alt="Anna University"></div>
-      <div><div class="edu-name">Anna University</div><div class="edu-deg">B.E. &mdash; Electronics &amp; Communication Engineering</div><div class="edu-det">Microprocessors &bull; Embedded Systems &bull; Digital Electronics &bull; Instrumentation</div></div>
-    </div>
-    <div class="edu">
       <div class="edu-seal"><img src="images/northeastern-seal.png" alt="Northeastern"></div>
       <div><div class="edu-name">Northeastern University</div><div class="edu-deg">M.S. &mdash; Computer Software Engineering</div><div class="edu-det">Algorithms &bull; Database Design &bull; Scalable Cloud Infrastructure &bull; DevOps</div></div>
     </div>
+    <div class="edu">
+      <div class="edu-seal"><img src="images/anna-university.png" alt="Anna University"></div>
+      <div><div class="edu-name">Anna University</div><div class="edu-deg">B.E. &mdash; Electronics &amp; Communication Engineering</div><div class="edu-det">Microprocessors &bull; Embedded Systems &bull; Digital Electronics &bull; Instrumentation</div></div>
+    </div>
   </div>
-
-  <div class="co"><b>The bridge:</b> Electronics gave me physical systems thinking. Software gave me scale. The intersection &mdash; bridging hardware constraints with cloud infrastructure &mdash; is where I do my best work.</div>
 </section>
 
 <!-- ══ 3 CAREER ══ -->
-<section class="slide">  <div class="ey">02 &middot; Career Trajectory</div>
-  <h2 class="st">From mainframes to microservices</h2>
-
-  <div class="logo-row" style="justify-content:center;">
-    <div class="logo-badge lg"><img src="images/cognizant-logo.png" alt="Cognizant"></div>
-    <div class="logo-badge lg"><img src="images/oracle-logo.png" alt="Oracle"></div>
-    <div class="logo-badge lg"><img src="images/wasabi-logo.png" alt="Wasabi"></div>
-    <div class="logo-badge lg"><img src="images/digitalhie-logo.png" alt="Digital HIE"></div>
-    <div class="logo-badge lg"><img src="images/capitalone-logo.png" alt="Capital One"></div>
+<section class="slide" style="justify-content:flex-start;padding-top:40px;">
+  <div class="ey">02 &middot; Career Trajectory</div>
+  <h2 class="st" style="margin-bottom:16px;">From mainframes to microservices</h2>
+  <div style="position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr 1fr;gap:10px;flex:1;min-height:0;" id="career-grid">
+    <div id="c1" style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;">
+      <img src="images/cognizant-logo.png" style="height:46px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-top:6px;">
+        <img src="images/ibm-mainframe.png" style="max-height:14vh;height:auto;">
+        <img src="images/microservices.png" style="max-height:14vh;height:auto;">
+      </div>
+    </div>
+    <div id="c2" style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;">
+      <img src="images/wasabi-logo.png" style="height:46px;">
+      <div style="margin-top:6px;background:#F8F9FA;padding:6px;display:inline-block;"><img src="images/data-center.png" style="max-height:14vh;height:auto;"></div>
+    </div>
+    <div id="c3" style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;">
+      <img src="images/northeastern-logo.png" style="height:46px;">
+      <div style="margin-top:6px;background:#F8F9FA;padding:6px;display:inline-block;"><img src="images/web-tech.png" style="max-height:14vh;height:auto;"></div>
+    </div>
+    <div id="c4" style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;">
+      <img src="images/oracle-logo.png" style="height:44px;">
+      <div style="margin-top:6px;background:#F8F9FA;padding:6px;display:inline-block;"><img src="images/iaas-cloud.png" style="max-height:14vh;height:auto;"></div>
+    </div>
+    <div id="c5" style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;">
+      <img src="images/capitalone-logo.png" style="height:44px;">
+      <div style="margin-top:6px;background:#F8F9FA;padding:6px;display:inline-block;"><img src="images/banking-icons.png" style="max-height:14vh;height:auto;"></div>
+    </div>
+    <div id="c6" style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;">
+      <img src="images/digitalhie-logo.png" style="height:44px;">
+      <div style="margin-top:6px;background:#F8F9FA;padding:6px;display:inline-block;"><img src="images/healthcare-apps.png" style="max-height:14vh;height:auto;"></div>
+    </div>
+    <svg id="career-arrows" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:5;">
+      <defs>
+        <marker id="ah" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8" fill="#0055FF" opacity=".45"/></marker>
+      </defs>
+    </svg>
   </div>
-
-  <table>
-    <thead><tr><th>Company</th><th>Role</th><th>What I Did</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Cognizant / Lincoln Financial</strong></td><td>Project Lead</td><td>Migrated Federal Insurance from IBM Mainframe &amp; S2K to ETL pipelines. 4 teams, 3 time zones, COVID. Delivered in 6 months.</td></tr>
-      <tr><td><strong>Digital HIE Inc</strong></td><td>Technical Lead</td><td>Led DirectTrust HISP accreditation from zero. HIPAA compliance, platform architecture, encryption, interoperability. 4 months.</td></tr>
-      <tr><td><strong>Capital One</strong></td><td>Systems Architect</td><td>Redesigned Transaction &amp; Account Stores for 130M+ accounts. Monolith to serverless on AWS. Terraform, Go, DynamoDB.</td></tr>
-    </tbody>
-  </table>
-
-  <div class="co green"><b>Pattern:</b> Take ownership of hard problems early, deliver under pressure, build systems others adopt.</div>
+  <script>
+  requestAnimationFrame(function(){
+    var grid=document.getElementById('career-grid');if(!grid)return;
+    var svg=document.getElementById('career-arrows');if(!svg)return;
+    var ns='http://www.w3.org/2000/svg';
+    var go=grid.getBoundingClientRect();
+    var order=['c1','c2','c3','c4','c5','c6'];
+    for(var i=0;i<order.length-1;i++){
+      var a=document.getElementById(order[i]),b=document.getElementById(order[i+1]);
+      if(!a||!b)continue;
+      var ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();
+      var ax=ar.left+ar.width/2-go.left,ay=ar.top+ar.height/2-go.top;
+      var bx=br.left+br.width/2-go.left,by=br.top+br.height/2-go.top;
+      var dx=bx-ax,dy=by-ay,dist=Math.sqrt(dx*dx+dy*dy);
+      var pad=Math.min(ar.width,ar.height)*0.42;
+      var sx=ax+dx/dist*pad,sy=ay+dy/dist*pad;
+      var ex=bx-dx/dist*pad,ey_=by-dy/dist*pad;
+      var line=document.createElementNS(ns,'line');
+      line.setAttribute('x1',sx);line.setAttribute('y1',sy);
+      line.setAttribute('x2',ex);line.setAttribute('y2',ey_);
+      line.setAttribute('stroke','#0055FF');line.setAttribute('stroke-width','2.5');
+      line.setAttribute('stroke-opacity','.4');line.setAttribute('marker-end','url(#ah)');
+      svg.appendChild(line);
+    }
+  });
+  </script>
 </section>
 
 <!-- ══ 4 INTERESTS ══ -->
 <section class="slide">  <div class="ey">03 &middot; Technical Interests</div>
   <h2 class="st">Where hardware meets scalable software</h2>
-  <div class="two" style="align-items:center">
-    <div>
+  <div>
       <ul>
         <li><strong>Architecture &amp; System Design</strong> &mdash; distributed systems at enterprise scale</li>
         <li><strong>Multi-Cloud Tenancies</strong> &mdash; bare metal + cloud provider infrastructure</li>
         <li><strong>Bridging Physical Systems</strong> with scalable software layers</li>
         <li><strong>Cryptography &amp; Hashing</strong> &mdash; security at the protocol level</li>
       </ul>
-      <div class="co"><b>Why Amperesand:</b> Solid-state transformers bridging physical power systems with intelligent software. That hardware-software intersection is exactly where I've built my career.</div>
+
     </div>
-    <div>
-      <h3 style="margin-bottom:12px;text-align:center;">IaaS Architecture</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
-        <div class="fnode"><div class="fi blu" style="font-size:36px;">&#9741;</div><div class="fl">Data Center</div></div>
-        <div class="fnode"><div class="fi pur" style="font-size:36px;">&#9107;</div><div class="fl">Virtualization</div></div>
-        <div class="fnode"><div class="fi cyn" style="font-size:36px;">&#9874;</div><div class="fl">Servers</div></div>
-        <div class="fnode"><div class="fi grn" style="font-size:36px;">&#9776;</div><div class="fl">Storage</div></div>
-        <div class="fnode"><div class="fi org" style="font-size:36px;">&#8644;</div><div class="fl">Networking</div></div>
-        <div class="fnode"><div class="fi gry" style="font-size:36px;">&#9919;</div><div class="fl">Security</div></div>
-      </div>
-    </div>
+
   </div>
 </section>
 
-<!-- ══ 5 PROJECT INTRO ══ -->
-<section class="slide cover" style="background:linear-gradient(135deg,#003FCC,#001F80);">  <div class="ey">Technical Presentation</div>
-  <h1>Capital One: Monolith to Microservices</h1>
-  <p class="sub">Redesigning Transaction &amp; Account Stores for 130M+ accounts across Card, Bank, Auto, and Global Finance.</p>
-  <div class="meta">
-    <span><b>Duration:</b>&nbsp;8 months</span>
-    <span><b>Scale:</b>&nbsp;130M+ accounts</span>
-    <span><b>Stack:</b>&nbsp;Go, DynamoDB, Lambda, Terraform</span>
+<!-- ══ 12 PERSONAL ══ -->
+<section class="slide">  <div class="ey">04 &middot; Personal Insights</div>
+  <h2 class="st">A few things beyond the code</h2>
+  <div class="pgrid">
+    <div class="pc"><h4>Sports</h4><p>Volleyball, Cricket, Badminton. Compete whenever I can. Team sports taught me more about coordination than any standup meeting.</p></div>
+    <div class="pc"><h4>Driving</h4><p>Love driving through Manhattan and Jersey City. The traffic isn't relaxing, but the energy is.</p></div>
+    <div class="pc"><h4>Languages</h4><p>English, Telugu, Tamil, Hindi, Kannada &mdash; 4+ languages. Working across global teams and time zones has always felt natural.</p></div>
+    <div class="pc"><h4>Exploring</h4><p>New cuisines, new places. Curiosity doesn't stop when I close the laptop.</p></div>
   </div>
+</section>
+
+
+<!-- ══ 5 PROJECT INTRO ══ -->
+<section class="slide">
+  <div class="ey">Technical Presentation</div>
+  <h2 class="st" >Capital One: <span style="color:#0055FF;">Monolith to Microservices</span></h2>
+  <p class="ss">Redesigning Transaction &amp; Account Stores for 130M+ accounts across Card, Bank, Auto, and Global Finance.</p>
+  <p style="color:#94A3B8;font-size:13px;">Duration: 10 months &nbsp;&bull;&nbsp; Scale: 130M+ accounts &nbsp;&bull;&nbsp; <em style="color:#0055FF;">Stack revealed in next slide</em></p>
 </section>
 
 <!-- ══ 6 PROBLEM ══ -->
-<section class="slide">  <div class="ey">04 &middot; Problem Statement</div>
-  <h2 class="st">One monolith. Four lines of business. It couldn't scale.</h2>
-  <div class="two">
+<section class="slide">
+  <div class="two" style="align-items:center;flex:1;">
     <div>
+      <div class="ey">06 &middot; Problem Statement</div>
+      <h2 class="st">One monolith. Four lines of business. It couldn't scale.</h2>
       <p>Capital One's Transaction and Account systems ran as a <strong>single monolithic application</strong>. Card, Bank, Auto, and Global Finance shared the same codebase, database, and deployment pipeline.</p>
-      <p>Changes to one LOB risked breaking another. Deployments were slow. Performance bottlenecks cascaded everywhere.</p>
-      <div class="kl">Split the monolith into individual services with shared libraries and reusable APIs. Deploy on AWS. Without disrupting 130M+ accounts.</div>
+      <div class="kl">Split into individual services with shared libraries. Deploy on AWS. Without disrupting 130M+ accounts.</div>
     </div>
-    <div>
-      <h3>Before vs After</h3>
-      <table>
-        <thead><tr><th>Before</th><th>After</th></tr></thead>
-        <tbody>
-          <tr><td><span class="pill rd">Monolith</span> Single app, all LOBs</td><td><span class="pill gr">Card Service</span> Independent</td></tr>
-          <tr><td><span class="pill rd">Shared DB</span> One schema</td><td><span class="pill gr">Bank Service</span> Own model</td></tr>
-          <tr><td><span class="pill rd">Coupled</span> Change one, risk all</td><td><span class="pill gr">Auto Service</span> Isolated</td></tr>
-          <tr><td><span class="pill rd">Bottleneck</span> Cascading</td><td><span class="pill gr">Global Finance</span> Scales alone</td></tr>
-        </tbody>
-      </table>
-
-      <!-- PROBLEM DIAGRAM: Monolith splitting -->
-      <div style="text-align:center;margin-top:12px;">
-        <div class="flow-v">
-          <div class="fnode" style="min-width:200px;"><div class="fi red" style="font-size:16px;">&#9646;</div><div class="fl" style="max-width:200px;">Payments &bull; Accounts &bull; Transactions</div></div>
-          <div class="farr-d">&darr;</div>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
-            <div class="fnode"><div class="fi grn">&#9635;</div><div class="fl">Shared Libs</div></div>
-            <div class="fnode"><div class="fi grn">&#8644;</div><div class="fl">Reusable APIs</div></div>
-            <div class="fnode"><div class="fi blu">&#9729;</div><div class="fl">AWS Cloud</div></div>
+    <div style="padding-top:36px;">
+      <!-- Monolith decomposition tree -->
+      <div style="text-align:center;">
+        <div class="flow-v" style="gap:4px;">
+          <div class="fnode" style="min-width:260px;padding:8px 16px;gap:4px;"><div style="font-size:28px;color:#DC2626;line-height:1;">&#9632;</div><div style="font-size:16px;font-weight:700;color:#DC2626;">Monolithic Application</div><div class="fl" style="max-width:260px;margin-top:2px;">Card &bull; Bank &bull; Auto &bull; Global Finance</div></div>
+          <div class="farr-d" style="font-size:20px;">&darr;</div>
+          <div style="font-size:11px;color:#94A3B8;font-weight:600;letter-spacing:1px;">SPLIT TO INDIVIDUAL SERVICES</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:4px;">
+            <div class="fnode" style="padding:6px 10px;gap:3px;min-width:auto;"><div style="font-size:22px;color:#059669;line-height:1;">&#36;</div><div style="font-size:12px;font-weight:600;color:#059669;">Payments</div></div>
+            <div class="fnode" style="padding:6px 10px;gap:3px;min-width:auto;"><div style="font-size:22px;color:#059669;line-height:1;">&#8801;</div><div style="font-size:12px;font-weight:600;color:#059669;">Accounts</div></div>
+            <div class="fnode" style="padding:6px 10px;gap:3px;min-width:auto;"><div style="font-size:22px;color:#059669;line-height:1;">&#8644;</div><div style="font-size:12px;font-weight:600;color:#059669;">Transactions</div></div>
           </div>
+          <div class="farr-d" style="font-size:20px;">&darr;</div>
+          <div class="fnode" style="padding:6px 14px;gap:3px;"><div style="font-size:22px;color:#1D4ED8;line-height:1;">{ }</div><div style="font-size:12px;font-weight:600;color:#1D4ED8;">Shared Generic Service Libraries</div></div>
+          <div class="farr-d" style="font-size:20px;">&darr;</div>
+          <div class="fnode" style="padding:6px 14px;gap:3px;"><div style="font-size:22px;color:#1D4ED8;line-height:1;">&#9881;</div><div style="font-size:12px;font-weight:600;color:#1D4ED8;">Reusable APIs &amp; Database Access Layers</div></div>
+          <div class="farr-d" style="font-size:20px;">&darr;</div>
+          <div class="fnode" style="padding:6px 14px;gap:3px;"><div style="font-size:22px;color:#FF9900;line-height:1;">&#9729;</div><div style="font-size:12px;font-weight:600;color:#0055FF;">AWS Cloud Infrastructure</div></div>
         </div>
       </div>
     </div>
@@ -439,7 +473,7 @@ tbody tr:nth-child(even){background:#F0F5FF}
 </section>
 
 <!-- ══ 7 METHODOLOGY ══ -->
-<section class="slide">  <div class="ey">05 &middot; Methodology</div>
+<section class="slide">  <div class="ey">07 &middot; Methodology</div>
   <h2 class="st">Product requirements drive every decision</h2>
 
   <table>
@@ -457,139 +491,52 @@ tbody tr:nth-child(even){background:#F0F5FF}
 </section>
 
 <!-- ══ 8 ARCHITECTURE ══ -->
-<section class="slide">  <div class="m-wrap tl mascot-zap"><svg viewBox="0 0 48 36" width="36" height="27" style="image-rendering:pixelated"><rect x="8" y="4" width="32" height="4" fill="#102D35"/><rect x="4" y="8" width="40" height="4" fill="#102D35"/><rect x="4" y="12" width="8" height="4" fill="#102D35"/><rect x="16" y="12" width="4" height="4" fill="#FAF6EE"/><rect x="20" y="12" width="8" height="4" fill="#102D35"/><rect x="32" y="12" width="4" height="4" fill="#FAF6EE"/><rect x="36" y="12" width="8" height="4" fill="#102D35"/><rect x="12" y="12" width="4" height="4" fill="#102D35"/><rect x="4" y="16" width="40" height="4" fill="#102D35"/><rect x="4" y="20" width="40" height="4" fill="#102D35"/><rect x="8" y="24" width="32" height="4" fill="#102D35"/><rect x="12" y="28" width="8" height="4" fill="#102D35"/><rect x="28" y="28" width="8" height="4" fill="#102D35"/><rect x="12" y="0" width="24" height="4" fill="#B6965E"/></svg><div class="zap">⚡</div></div>
-  <div class="ey">06 &middot; Architecture Implemented</div>
-  <h2 class="st">Request flow: client to DynamoDB and back</h2>
-  <p class="ss">Users &rarr; Security &rarr; Cloud Doctor &rarr; Load Balancer &rarr; SQS &rarr; Lambda &rarr; DynamoDB &rarr; Monitoring &rarr; Cost Analysis</p>
-
-  <!-- FULL ARCHITECTURE DIAGRAM -->
-  <div style="margin-top:8px;">
-    <div class="arch-section">
-      <div class="arch-label">Ingress &amp; Security</div>
-      <div class="flow">
-        <div class="fnode"><div class="fi red">&#9041;</div><div class="fl">Users / Clients / Vendors</div></div>
-        <div class="farr">&rarr;</div>
-        <div class="fnode"><div class="fi red">&#9888;</div><div class="fl">Security &amp; Compliance</div></div>
-        <div class="farr">&rarr;</div>
-        <div class="fnode"><div class="fi pur">&#9672;</div><div class="fl">Cloud Doctor</div></div>
-      </div>
+<section class="slide" style="justify-content:flex-start;padding-top:36px;background:repeating-linear-gradient(#E8EBF0 0 1px,transparent 1px 28px),repeating-linear-gradient(90deg,#E8EBF0 0 1px,transparent 1px 28px);background-size:28px 28px;background-color:#FAFBFC;">
+  <div class="ey">08 &middot; Architecture Implemented</div>
+  <h2 class="st" style="margin-bottom:8px;">Request flow: client to DynamoDB and back</h2>
+  <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:20px;flex:1;align-items:center;">
+    <div style="display:flex;justify-content:center;align-items:center;height:100%;">
+      <img src="images/aws-architecture.png" alt="AWS Architecture" style="max-width:100%;max-height:52vh;object-fit:contain;">
     </div>
-    <div class="farr-d">&darr;</div>
-    <div class="arch-section">
-      <div class="arch-label">Processing</div>
-      <div class="flow">
-        <div class="fnode"><div class="fi blu">&#8651;</div><div class="fl">Application Load Balancer</div></div>
-        <div class="farr">&rarr;</div>
-        <div class="fnode"><div class="fi pnk">&#9113;</div><div class="fl">SQS Queue</div></div>
-        <div class="farr">&rarr;</div>
-        <div class="fnode"><div class="fi org">&lambda;</div><div class="fl">Lambda Functions</div></div>
-        <div class="farr">&harr;</div>
-        <div class="fnode"><div class="fi blu">&#9740;</div><div class="fl">DynamoDB</div></div>
-      </div>
-    </div>
-    <div class="farr-d">&darr;</div>
-    <div class="arch-section">
-      <div class="arch-label">Observability &amp; Cost</div>
-      <div class="flow">
-        <div class="fnode"><div class="fi cyn">&#9202;</div><div class="fl">X-Ray / Splunk</div></div>
-        <div class="farr">&rarr;</div>
-        <div class="fnode"><div class="fi pur">&#9636;</div><div class="fl">CloudWatch</div></div>
-        <div class="farr">&rarr;</div>
-        <div class="fnode"><div class="fi grn">&#36;</div><div class="fl">Cost Analysis</div></div>
-        <div class="farr">&rarr;</div>
-        <div class="fnode"><div class="fi gry">&#9782;</div><div class="fl">CloudWatch Logs</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ 9 CI/CD ══ -->
-<section class="slide">  <div class="ey">07 &middot; CI/CD &amp; Testing</div>
-  <h2 class="st">Ship fast. Test everything.</h2>
-  <div class="two">
-    <div>
-      <h3>CI/CD Pipeline</h3>
-      <p>Source code in <strong>Go</strong>, stored in GitHub. Jenkins builds binaries, pushes to <strong>JFrog</strong>, deploys to all lines of business.</p>
-
-      <!-- CI/CD DIAGRAM -->
-      <div style="margin-top:8px;">
-        <div class="flow">
-          <div class="fnode"><div class="fi gry">&lt;/&gt;</div><div class="fl">Go Source</div></div>
-          <div class="farr">&rarr;</div>
-          <div class="fnode"><div class="fi gry" style="font-family:sans-serif;">&#x2B23;</div><div class="fl">GitHub</div></div>
-          <div class="farr">&rarr;</div>
-          <div class="fnode"><div class="fi grn">&#8635;</div><div class="fl">Jenkins CI/CD</div></div>
-        </div>
-        <div class="farr-d">&darr;</div>
-        <div class="flow">
-          <div class="fnode"><div class="fi blu">&#9745;</div><div class="fl">JFrog Artifactory</div></div>
-        </div>
-        <div class="farr-d">&darr;</div>
-        <div class="flow">
-          <div class="fnode"><div class="fi org">&lambda;</div><div class="fl">Lambda Card</div></div>
-          <div class="fnode"><div class="fi org">&lambda;</div><div class="fl">Lambda Bank</div></div>
-          <div class="fnode"><div class="fi org">&lambda;</div><div class="fl">Lambda Auto</div></div>
-          <div class="fnode"><div class="fi org">&lambda;</div><div class="fl">Lambda Global</div></div>
-        </div>
-      </div>
-    </div>
-    <div>
-      <h3>Testing Coverage</h3>
-      <table>
-        <thead><tr><th>Type</th><th>Coverage</th><th>Detail</th></tr></thead>
+    <div style="padding-top:4px;">
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0055FF;margin-bottom:6px;">CI/CD Pipeline</div>
+      <p style="font-size:18px;margin-bottom:12px;line-height:1.6;color:#334155;">Source code in <strong>Go</strong>, stored in GitHub. Jenkins builds binaries, pushes to <strong>JFrog</strong>, deploys to all lines of business.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0055FF;margin-bottom:6px;">Testing Coverage</div>
+      <table style="font-size:15px;margin:8px 0 12px;">
+        <thead><tr><th style="font-size:10px;">Type</th><th style="font-size:10px;">Coverage</th><th style="font-size:10px;">Detail</th></tr></thead>
         <tbody>
-          <tr><td><strong>Sonar</strong></td><td><span class="pill gr">98%</span></td><td>Full codebase</td></tr>
-          <tr><td><strong>Unit</strong></td><td><span class="pill gr">100%</span></td><td>Business logic, components independently</td></tr>
-          <tr><td><strong>Integration</strong></td><td><span class="pill bl">BDD</span></td><td>Gherkin scenarios &mdash; API, AWS, DynamoDB layers</td></tr>
-          <tr><td><strong>Performance</strong></td><td><span class="pill bl">1B+ records</span></td><td>Apache JMeter load testing</td></tr>
+          <tr><td style="font-weight:600;">Sonar</td><td><span class="pill gr">98%</span></td><td style="color:#64748B;">Full codebase</td></tr>
+          <tr><td style="font-weight:600;">Unit</td><td><span class="pill gr">100%</span></td><td style="color:#64748B;">Business logic, components</td></tr>
+          <tr><td style="font-weight:600;">Integration</td><td><span class="pill bl">BDD</span></td><td style="color:#64748B;">Gherkin scenarios</td></tr>
+          <tr><td style="font-weight:600;">Performance</td><td><span class="pill bl">1B+ records</span></td><td style="color:#64748B;">JMeter load testing</td></tr>
         </tbody>
       </table>
-      <div class="co green"><b>BDD in practice:</b> Integration tests used Gherkin-based scenarios mirroring real-world workflows and acceptance criteria through behavior-driven development.</div>
+      <div class="co green" style="font-size:16px;padding:16px 20px;margin:10px 0;line-height:1.5;"><b>BDD:</b> Integration tests used Gherkin-based scenarios mirroring real-world workflows through behavior-driven development.</div>
     </div>
   </div>
 </section>
 
-<!-- ══ 10 SOLUTION ══ -->
-<section class="slide">  <div class="ey">08 &middot; Finalized Solution</div>
-  <h2 class="st">NoSQL + Go + Serverless. Purpose-built for scale.</h2>
-  <div class="two">
-    <div>
-      <!-- CORE SERVICES DIAGRAM -->
-      <div style="text-align:center;margin-top:8px;">
-        <div class="fnode" style="margin:0 auto 10px;min-width:180px;"><div class="fi grn">&#9670;</div><div class="fl" style="max-width:160px;">Core Services</div></div>
-        <div style="display:flex;gap:16px;justify-content:center;margin:4px 0;"><span class="farr-d">&darr;</span><span class="farr-d">&darr;</span><span class="farr-d">&darr;</span><span class="farr-d">&darr;</span></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:380px;margin:0 auto;">
-          <div class="fnode"><div class="fi blu">&#9737;</div><div class="fl">Bank Transactions</div></div>
-          <div class="fnode"><div class="fi blu">&#9737;</div><div class="fl">Card Transactions</div></div>
-          <div class="fnode"><div class="fi blu">&#9737;</div><div class="fl">Auto Account Txns</div></div>
-          <div class="fnode"><div class="fi blu">&#9737;</div><div class="fl">Global Transactions</div></div>
-        </div>
-      </div>
-
-      <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;">
-        <span class="pill gr">NoSQL</span><span class="pill gr">DynamoDB</span><span class="pill gr">Go</span>
-        <span class="pill gr">Lambda</span><span class="pill gr">Terraform</span><span class="pill bl">Multi-Region</span>
-      </div>
+<!-- ══ 9 CI/CD + CORE SERVICES ══ -->
+<section class="slide" style="justify-content:flex-start;padding-top:40px;background:repeating-linear-gradient(#E8EBF0 0 1px,transparent 1px 28px),repeating-linear-gradient(90deg,#E8EBF0 0 1px,transparent 1px 28px);background-size:28px 28px;background-color:#FAFBFC;">
+  <div class="ey">09 &middot; CI/CD Pipeline &amp; Core Services</div>
+  <h2 class="st" style="margin-bottom:12px;">Ship fast. Test everything.</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;align-items:center;">
+    <div style="text-align:center;">
+      <img src="images/cicd-pipeline.png" alt="CI/CD Pipeline" style="max-width:100%;max-height:55vh;object-fit:contain;">
     </div>
-    <div>
-      <ul>
-        <li><strong>Business use cases</strong> decide the entire tech stack</li>
-        <li>Schema designed with <strong>room for future changes</strong></li>
-        <li><strong>DynamoDB + Go</strong> &mdash; ideal and cost-effective at scale</li>
-        <li><strong>1,000+ concurrent Lambdas</strong> handling millions of records</li>
-      </ul>
-      <div class="co"><b>Sign-off:</b> Product Owners, Third-Party Vendors, Enterprise Architects, VP Leadership. Every architectural decision required cross-functional approval.</div>
+    <div style="text-align:center;">
+      <img src="images/core-services.png" alt="Core Services" style="max-width:100%;max-height:55vh;object-fit:contain;">
     </div>
   </div>
 </section>
 
 <!-- ══ 11 IMPACT ══ -->
-<section class="slide">  <div class="ey">09 &middot; Impact &amp; Takeaways</div>
+<section class="slide">  <div class="ey">11 &middot; Impact &amp; Takeaways</div>
   <h2 class="st">Challenge existing designs. Let the product decide.</h2>
 
   <div class="mrow" style="justify-content:flex-start;gap:40px;margin:20px 0;">
     <div class="m" style="text-align:left;"><div class="mv">130M+</div><div class="ml">Accounts</div></div>
-    <div class="m" style="text-align:left;"><div class="mv">8 mo</div><div class="ml">Delivered</div></div>
+    <div class="m" style="text-align:left;"><div class="mv">10 mo</div><div class="ml">Delivered</div></div>
     <div class="m" style="text-align:left;"><div class="mv">4</div><div class="ml">Services</div></div>
     <div class="m" style="text-align:left;"><div class="mv">98%</div><div class="ml">Coverage</div></div>
   </div>
@@ -604,27 +551,12 @@ tbody tr:nth-child(even){background:#F0F5FF}
   <div class="kl">Built Terraform from scratch enabling automated cross-region failover us-east-1 to us-west-2. Designed "code-once" architecture adopted across four services on multiple AWS accounts.</div>
 </section>
 
-<!-- ══ 12 PERSONAL ══ -->
-<section class="slide">  <div class="ey">10 &middot; Personal Insights</div>
-  <h2 class="st">A few things beyond the code</h2>
-  <div class="pgrid">
-    <div class="pc"><h4>Sports</h4><p>Volleyball, Cricket, Badminton. Compete whenever I can. Team sports taught me more about coordination than any standup meeting.</p></div>
-    <div class="pc"><h4>Driving</h4><p>Love driving through Manhattan and Jersey City. The traffic isn't relaxing, but the energy is.</p></div>
-    <div class="pc"><h4>Languages</h4><p>English, Telugu, Tamil, Hindi, Kannada &mdash; 4+ languages. Working across global teams and time zones has always felt natural.</p></div>
-    <div class="pc"><h4>Exploring</h4><p>New cuisines, new places. Curiosity doesn't stop when I close the laptop.</p></div>
-  </div>
-</section>
-
 <!-- ══ 13 Q&A ══ -->
-<section class="slide cover" style="background:linear-gradient(135deg,#003FCC,#001F80);">  <div class="m-wrap tl mascot-walk"><svg viewBox="0 0 48 36" width="36" height="27" style="image-rendering:pixelated"><rect x="8" y="4" width="32" height="4" fill="#102D35"/><rect x="4" y="8" width="40" height="4" fill="#102D35"/><rect x="4" y="12" width="8" height="4" fill="#102D35"/><rect x="16" y="12" width="4" height="4" fill="#FAF6EE"/><rect x="20" y="12" width="8" height="4" fill="#102D35"/><rect x="32" y="12" width="4" height="4" fill="#FAF6EE"/><rect x="36" y="12" width="8" height="4" fill="#102D35"/><rect x="12" y="12" width="4" height="4" fill="#102D35"/><rect x="4" y="16" width="40" height="4" fill="#102D35"/><rect x="4" y="20" width="40" height="4" fill="#102D35"/><rect x="8" y="24" width="32" height="4" fill="#102D35"/><rect x="12" y="28" width="8" height="4" fill="#102D35"/><rect x="28" y="28" width="8" height="4" fill="#102D35"/><rect x="12" y="0" width="24" height="4" fill="#B6965E"/></svg></div>
+<section class="slide">
   <div class="ey">Q&amp;A</div>
-  <h1>Ok, shoot.</h1>
+  <h2 class="st" style="font-size:68px;">Ok, shoot. <span style="font-size:48px;">&#127919;</span></h2>
   <p class="sub">Happy to go deeper on any technical decisions, trade-offs, challenges, or lessons learned.</p>
-  <div class="meta">
-    <span><b>LinkedIn:</b>&nbsp;<a href="https://www.linkedin.com/in/saikiranreddykonda/" target="_blank" style="color:inherit;text-decoration:underline">saikiranreddykonda</a></span>
-    
-    <span><b>Email:</b>&nbsp;<a href="mailto:konda.saik@northeastern.edu" style="color:inherit;text-decoration:underline">konda.saik@northeastern.edu</a></span>
-  </div>
+
 </section>
 
 </div>
